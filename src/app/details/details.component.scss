@@ -1,0 +1,81 @@
+.body {
+  background-color: #061325;
+  font-family: "Varela Round" !important;
+}
+ h5, span, h6, h3 {
+  color: #d8e2ef;
+}
+
+.bg-custom {
+  background-color: #0e1c2f;
+  background-clip: border-box;
+  border: 0 solid #061325;
+  border-radius: .375rem;
+}
+
+.c > h3, p, h5 > span {
+  color: #9da9bb;
+}
+.badge-soft-success {
+  color: #5ce2aa;
+  background-color: #0b403e;
+}
+.badge-soft-danger {
+  color: #e25c5c;
+  background-color: #400b27;
+}
+.playing > a {
+  cursor: pointer;
+  color: #9da9bb;
+}
+.image {
+  position: relative;
+  left: -30px;
+}
+.bg-custom-right, .playing {
+  background-color: #0e1c2f;
+  border-radius: .375rem .375rem .375rem .375rem;
+}
+.bg-custom-right-desc {
+  border-radius: 0 0 .375rem .375rem;
+  background-color: #0e1c2f;
+}
+.border-line {
+  border-bottom: 0 solid #061325;
+  border-radius: .375rem .375rem 0rem 0rem;
+  background-color: #132238;
+}
+.progress-bar {
+  transition: width .6s ease;
+}
+.search-input > input {
+  background-color: #0e1c2f;
+  background-clip: border-box;
+  border: 1px solid #344050;
+
+  padding-left: 2rem;
+  line-height: 1.7;
+  border-radius: 50rem;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  transition-duration: 0.3s;
+}
+
+.search-input > input:focus {
+  color: #d8e2ef;
+  background-color: #0e1c2f;
+  border-color: #4d5969;
+  outline: 0;
+  transition-duration: 0.3s;
+}
+.search-box-icon {
+  position: absolute;
+  color: #4d5969;
+  top: 50%;
+  left: .9rem;
+  -webkit-transform: translateY(-48%);
+  -ms-transform: translateY(-48%);
+  transform: translateY(-48%);
+}
+
+// #132238 light #2c7be5;

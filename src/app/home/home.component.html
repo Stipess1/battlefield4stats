@@ -1,0 +1,29 @@
+<div class="body">
+  <div class="container-fluid">
+    <div class="container h-100">
+
+      <div class="h-100 d-flex align-items-center flex-column pt-5" style="padding-bottom: 150px;">
+        <div>
+          <p>BATTLEFIELD 4 STATS</p>
+        </div>
+        <div class="flex-row d-flex">
+          <div class=" flex-row d-flex system-layout align-items-center" style="height: 45px; overflow: hidden;">
+            <div class="system pr-3 pl-3 justify-content-center align-items-center d-flex" [ngStyle]="{'background-color': bgPc}" (click)="set('origin')">
+              <img src="../assets/icons/Origin.png" height="40" alt="">
+            </div>
+            <div class="system pr-3 pl-3 justify-content-center align-items-center d-flex" [ngStyle]="{'background-color': bgPs}" (click)="set('ps')">
+              <img src="../assets/icons/playstation.svg"  height="40" alt="">
+            </div>
+            <div class="system pr-3 pl-3 justify-content-center align-items-center d-flex" [ngStyle]="{'background-color': bgXbox}" (click)="set('xbox')">
+              <img src="../assets/icons/xbox-logo.svg"  height="35" alt="">
+            </div>
+          </div>
+          <input type="text" #search  placeholder="Nickname" (input)="nickInput(search.value)" (keydown.enter)="submit()" >
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>

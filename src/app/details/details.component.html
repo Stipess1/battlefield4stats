@@ -1,0 +1,551 @@
+<div class="body pb-5">
+  <div class="container pt-3 " *ngIf="loaded && profile.time != undefined">
+    <i class="fas fa-search"></i>
+    <div class="search-input mb-4">
+      
+      <input type="text" placeholder="Search...">
+    </div>
+    <div class="d-flex align-items-center playing mb-4 p-3">
+      <h5 class="mb-0">Currently playing </h5>
+      <a class="ml-2" href="https://battlelog.battlefield.com/bf4/servers/show/pc/27a523ab-9e51-4eaa-9326-c4e6504841f1/" target="_blank">
+        #10| 24/7 Rock n Roll | OLD LOCKER | NO WEAP RULES | EPS 60Hz - (Operation Locker)
+      </a>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 ">
+        <div class="c bg-custom shadow-sm p-4">
+          <h5>Time</h5>
+          <h3>{{profile.time}}</h3>
+          <span class="badge badge-pill badge-soft-success">+1h</span>
+        </div>
+      </div>
+      <div class="col-lg-3 ">
+        <div class="c bg-custom shadow-sm p-4">
+          <h5>Kills</h5>
+          <h3>{{profile.kills}}</h3>
+          <span class="badge badge-pill badge-soft-success">+124</span>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="c bg-custom shadow-sm p-4">
+          <h5>Deaths</h5>
+          <h3>{{profile.deaths}}</h3>
+          <span class="badge badge-pill badge-soft-danger">+100</span>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="c bg-custom shadow-sm p-4">
+          <h5>K/D</h5>
+          <h3>{{profile.kd}}</h3>
+          <span class="badge badge-pill badge-soft-success">+0.5%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-lg-3">
+        <img class="position-absolute animate__animated animate__fadeIn" src="{{profile.emblem}}" alt="">
+        <img class="image animate__animated animate__fadeIn" src="{{profile.picture}}" alt="">
+      </div>
+      <div class="col-lg-6 z-index">
+        <div class="bg-custom bg-custom-right shadow-sm ">
+          <div class="p-4 border-line">
+            <h5 class="mb-0">Service Stars</h5>
+          </div>
+          <div class="bg-custom-right-desc p-4 ">
+            <div class="d-flex align-self-center ">
+              <img src="../../assets/icons/medic.png" width="31" height="32" alt="">
+              <div class="progress align-self-center ml-2 mr-2" style="height: 10px; width: 75%; background-color: #061325;">
+                <div class="progress-bar bg-warning align-items-center" role="progressbar" [ngStyle]="{'width.%': profile.srsProgressAssault}" aria-valuenow="profile.srsProgressAssault" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <img src="../../assets/icons/star.svg" width="25" height="25" alt="">
+              <h5 class="mb-0 ml-1 d-flex align-self-center">{{profile.srsAssault}}</h5>
+            </div>
+            <div class="d-flex justify-content-center">
+              <p class="text-center mb-0 medic-score">{{profile.pointsAssault}}/<span>{{profile.pointsAssaultNeeded}}</span></p>
+            </div>
+            <div class="d-flex align-self-center mt-1">
+              <img src="../../assets/icons/engineer.png" width="31" height="32" alt="">
+              <div class="progress align-self-center ml-2 mr-2" style="height: 10px; width: 75%; background-color: #061325;">
+                <div class="progress-bar bg-warning" role="progressbar" [ngStyle]="{'width.%': profile.srsProgressEngineer}" aria-valuenow="profile.srsProgressEngineer" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <img src="../../assets/icons/star.svg" width="25" height="25" alt="">
+              <h5 class="mb-0 ml-1 d-flex align-self-center">{{profile.srsEngineer}}</h5>
+            </div>
+            <div class="d-flex justify-content-center">
+              <p class="text-center mb-0 engineer-score">{{profile.pointsEngineer}}/<span>{{profile.pointsEngineerNeeded}}</span></p>
+            </div>
+
+            <div class="d-flex align-self-center mt-1">
+              <img src="../../assets/icons/support.png" width="31" height="32" alt="">
+              <div class="progress align-self-center ml-2 mr-2" style="height: 10px; width: 75%; background-color: #061325;">
+                <div class="progress-bar bg-warning" role="progressbar" [ngStyle]="{'width.%': profile.srsProgressSupport}" aria-valuenow="profile.srsProgressSupport" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <img src="../../assets/icons/star.svg" width="25" height="25" alt="">
+              <h5 class="mb-0 ml-1 d-flex align-self-center">{{profile.srsSupport}}</h5>
+            </div>
+            <div class="d-flex justify-content-center">
+              <p class="text-center mb-0 support-score">{{profile.pointsSupport}}/<span>{{profile.pointsSupportNeeded}}</span></p>
+            </div>
+            <div class="d-flex align-self-center mt-1">
+              <img src="../../assets/icons/sniper.png" width="31" height="32" alt="">
+              <div class="progress align-self-center ml-2 mr-2" style="height: 10px; width: 75%; background-color: #061325;">
+                <div class="progress-bar bg-warning" role="progressbar" [ngStyle]="{'width.%': profile.srsProgressReacon}" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <img src="../../assets/icons/star.svg" width="25" height="25" alt="">
+              <h5 class="mb-0 ml-1 d-flex align-self-center">{{profile.srsReacon}}</h5>
+
+            </div>
+            <div class="d-flex justify-content-center">
+              <p class="text-center mb-0 snipre-score">{{profile.pointsReacon}}/<span>{{profile.pointsReaconNeeded}}</span></p>
+            </div>
+            <div class="d-flex align-self-center mt-1">
+              <img src="../../assets/icons/commander.png" width="31" height="32" alt="">
+              <div class="progress align-self-center ml-2 mr-2" style="height: 10px; width: 75%; background-color: #061325;">
+                <div class="progress-bar bg-warning"  role="progressbar" [ngStyle]="{'width.%': profile.srsProgressCommander}" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <img src="../../assets/icons/star.svg" width="25" height="25" alt="">
+              <h5 class="mb-0 ml-1 d-flex align-self-center">{{profile.srsCommander}}</h5>
+            </div>
+            <div class="d-flex justify-content-center">
+              <p class="text-center mb-0 commander-score">{{profile.pointsCommander}}/<span>{{profile.pointsCommanderNeeded}}</span></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="bg-custom-right shadow-sm mb-0">
+          <div class="p-4 border-line">
+            <h5 class="mb-0">General Stats</h5>
+          </div>
+          <div class="bg-custom-right-desc pl-4 pr-4 pb-4 pt-2 ">
+            <div class="d-flex flex-row justify-content-between align-items-center w-100">
+              <h6 class="mb-0 ">Kill Assists</h6>
+              <p class="ml-3 mb-0 " >{{profile.killAssists}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center  mt-2">
+              <h6 class="mb-0">Kills/Min</h6>
+              <p class="ml-3 mb-0" >{{profile.KillsPMin}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center  mt-2">
+              <h6 class="mb-0">Shots fired</h6>
+              <p class="ml-3 mb-0">{{profile.shotsFired}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center  mt-2">
+              <h6 class="mb-0">Shots hit</h6>
+              <p class="ml-3 mb-0">{{profile.shotsHit}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0" >Accuracy</h6>
+              <p class="ml-3 mb-0" >{{profile.accuracy}}%</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center  mt-2">
+              <h6 class="mb-0">Wins</h6>
+              <p class="ml-3 mb-0">{{profile.wins}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center  mt-2">
+              <h6 class="mb-0" >Losses</h6>
+              <p class="ml-3 mb-0">{{profile.losses}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center  mt-2">
+              <h6 class="mb-0">Rounds played</h6>
+              <p class="ml-3 mb-0">{{profile.roundsPlayed}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center  mt-2">
+              <h6 class="mb-0" >Play time</h6>
+              <p class="ml-3 mb-0">{{profile.time}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center  mt-2">
+              <h6 class="mb-0" >W/L Ratio</h6>
+              <p class="ml-3 mb-0">{{profile.wlRatio}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-lg-9">
+        <div class="bg-custom-right h-100">
+          <div class="border-line p-4" >
+            <h5 class="mb-0">Rank - <span>{{profile.nickname}}</span></h5>
+          </div>
+          <div class="bg-custom-right-desc ">
+            <div class="pt-3 pb-3 d-flex align-self-center">
+              <div class="d-flex flex-column">
+                <img width="128"  src="{{profile.rankImg}}" alt="">
+                <p class="mb-0 text-center">Brigadier General III</p>
+              </div>
+
+              <div class="d-flex flex-column w-100 align-items-center justify-content-center mb-1">
+                <h6 class="mb-0">SPM</h6>
+                <div class="d-flex ">
+                  <p class="mb-0 font-weight-bold">{{profile.scorePerMinute}}</p>
+                </div>
+                <div class="progress " style="height: 10px; width: 100%; background-color: #061325;">
+                  <div class="progress-bar bg-warning progress-bar-animated progress-bar-animated" role="progressbar" [ngStyle]="{'width.%': profile.rankUpPercentage}" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <div class="d-flex justify-content-between w-100 mt-1">
+                  <p>{{profile.rankPoints}}</p>
+                  <p>{{profile.rankUpPointsLeft}} left</p>
+                  <p>{{profile.nextRankPointsNeeded}}</p>
+                </div>
+              </div>
+              <div *ngIf="profile.rank != 140">
+                <img width="128" src="{{profile.rankUpImg}}" alt="">
+                <p class="mb-0 text-center">Brigadier General IV</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="bg-custom-right ">
+          <div class="border-line p-4" >
+            <h5 class="mb-0">Award Stats</h5>
+          </div>
+          <div class="bg-custom-right-desc pl-4 pr-4 pt-2 pb-3">
+            <div class="d-flex flex-row justify-content-between align-items-center ">
+              <h6 class="mb-0">Medals collected</h6>
+              <p class="ml-3 mb-0">{{profile.medalsCollected}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-3">
+              <h6 class="mb-0">Medals unlocked</h6>
+              <p class="ml-3 mb-0">{{profile.medalsUnlocked}}/54</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-3">
+              <h6 class="mb-0">Ribbons collected</h6>
+              <p class="ml-3 mb-0">{{profile.ribbonsCollected}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-3">
+              <h6 class="mb-0">Ribbons unlocked</h6>
+              <p class="ml-3 mb-0">{{profile.ribbonsUnlocked}}/54</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-3">
+              <h6 class="mb-0">Ribbons per round</h6>
+              <p class="ml-3 mb-0">{{profile.ribbonsPerRound}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-lg-4">
+        <div class="bg-custom-right ">
+          <div class="border-line p-4" >
+            <h5 class="mb-0">Rankings</h5>
+          </div>
+          <div class="bg-custom-right-desc pl-4 pr-4 pt-2 pb-3">
+            <div class="d-flex flex-row justify-content-between align-items-center ">
+              <h6 class="mb-0">Score</h6>
+              <p class="ml-3 mb-0">{{profile.score}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Headshots / Kills %</h6>
+              <p class="ml-3 mb-0">{{profile.headshotKillsPercentage}}%</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2 ">
+              <h6 class="mb-0">Kill / Hit %</h6>
+              <p class="ml-3 mb-0">{{profile.killHitPercentage}}%</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Shots fired per minute</h6>
+              <p class="ml-3 mb-0">{{profile.shotsFirePerMinute}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Dogtags</h6>
+              <p class="ml-3 mb-0">{{profile.dogtags}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Headshots</h6>
+              <p class="ml-3 mb-0">{{profile.headshots}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Supression assists</h6>
+              <p class="ml-3 mb-0">{{profile.suppressionAssists}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Longest headshot</h6>
+              <p class="ml-3 mb-0">{{profile.longestHeadshot}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Vehicle destroyed</h6>
+              <p class="ml-3 mb-0">{{profile.vehicleDestroyed}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Vehicle damage</h6>
+              <p class="ml-3 mb-0">{{profile.vehicleDamage}}</p>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="bg-custom-right ">
+          <div class="border-line p-4" >
+            <h5 class="mb-0">Combat Stats</h5>
+          </div>
+          <div class="bg-custom-right-desc pl-4 pr-4 pt-2 pb-3">
+            <div class="d-flex flex-row justify-content-between align-items-center ">
+              <h6 class="mb-0">Shots fired</h6>
+              <p class="ml-3 mb-0">{{profile.shotsFired}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Shots hit</h6>
+              <p class="ml-3 mb-0">{{profile.shotsHit}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Avenger kills</h6>
+              <p class="ml-3 mb-0">{{profile.avengerKills}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Savior kills</h6>
+              <p class="ml-3 mb-0">{{profile.saviorKills}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Nemesis kills</h6>
+              <p class="ml-3 mb-0">{{profile.nemesisKills}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Unknown kills</h6>
+              <p class="ml-3 mb-0">15</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Kill streak</h6>
+              <p class="ml-3 mb-0">{{profile.killStreak}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Nemesis streak</h6>
+              <p class="ml-3 mb-0">{{profile.nemesisStreak}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Quits</h6>
+              <p class="ml-3 mb-0">{{profile.quits}}%</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Skill</h6>
+              <p class="ml-3 mb-0">{{profile.skill}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="bg-custom-right ">
+          <div class="border-line p-4" >
+            <h5 class="mb-0">Team Stats</h5>
+          </div>
+          <div class="bg-custom-right-desc pl-4 pr-4 pt-2 pb-3">
+            <div class="d-flex flex-row justify-content-between align-items-center ">
+              <h6 class="mb-0">Supression assists</h6>
+              <p class="ml-3 mb-0">{{profile.suppressionAssists}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Kill assists</h6>
+              <p class="ml-3 mb-0">{{profile.killAssists}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">MCOM defend kills</h6>
+              <p class="ml-3 mb-0">{{profile.mcomDefendKills}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Resupplies</h6>
+              <p class="ml-3 mb-0">{{profile.resupplies}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Repairs</h6>
+              <p class="ml-3 mb-0">{{profile.repairs}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Heals</h6>
+              <p class="ml-3 mb-0">{{profile.heals}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Revives</h6>
+              <p class="ml-3 mb-0">{{profile.revives}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Flag defends</h6>
+              <p class="ml-3 mb-0">{{profile.flagDefends}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Flag captures</h6>
+              <p class="ml-3 mb-0">{{profile.flagCaptures}}</p>
+            </div>
+
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Team score</h6>
+              <p class="ml-3 mb-0">{{profile.teamScore}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-lg-3">
+        <div class="bg-custom-right">
+          <div class="border-line p-4" >
+            <h5 class="mb-0">Scores</h5>
+          </div>
+          <div class="bg-custom-right-desc pl-4 pr-4 pt-2 pb-3">
+            <div class="d-flex flex-row justify-content-between align-items-center ">
+              <h6 class="mb-0">Squad</h6>
+              <p class="ml-3 mb-0">{{profile.squadScore}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Team</h6>
+              <p class="ml-3 mb-0">{{profile.teamScore}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Vehicle</h6>
+              <p class="ml-3 mb-0">{{profile.vehicleScore}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Combat</h6>
+              <p class="ml-3 mb-0">{{profile.combatScore}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">General</h6>
+              <p class="ml-3 mb-0">{{profile.generalScore}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Award</h6>
+              <p class="ml-3 mb-0">{{profile.awardScore}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Bonus</h6>
+              <p class="ml-3 mb-0">{{profile.bonusScore}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Unlock</h6>
+              <p class="ml-3 mb-0">{{profile.unlockScore}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Rank</h6>
+              <p class="ml-3 mb-0">{{profile.rankScore}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Total</h6>
+              <p class="ml-3 mb-0">{{profile.totalScore}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="bg-custom-right h-100">
+          <div class="border-line p-4" >
+            <h5 class="mb-0">Service Stars Game Modes</h5>
+          </div>
+          <div class="bg-custom-right-desc pl-4 pr-4 pt-2 pb-3">
+            <h6 class="text-center mb-0">{{profile.conquestCode}}</h6>
+            <div class="d-flex align-self-center ">
+
+              <div class="progress align-self-center ml-2 mr-2" style="height: 10px; width: 80%; background-color: #061325;">
+                <div class="progress-bar bg-warning" role="progressbar" [ngStyle]="{'width.%': profile.conquestProgress}" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <img src="../../assets/icons/star.svg" width="25" height="25" alt="">
+              <h5 class="mb-0 ml-1 d-flex align-self-center">{{profile.conquestStars}}</h5>
+
+            </div>
+            <div class="d-flex justify-content-center">
+              <p class="text-center mb-0 medic-score">{{profile.conquestActualValue}}/<span>{{ profile.conquestValueNeeded}}</span></p>
+            </div>
+            <h6 class="text-center mt-2 mb-0">{{profile.deathmatchCode}}</h6>
+            <div class="d-flex align-self-center mt-1">
+
+              <div class="progress align-self-center ml-2 mr-2" style="height: 10px; width: 80%; background-color: #061325;">
+                <div class="progress-bar bg-warning" role="progressbar" [ngStyle]="{'width.%': profile.deathmatchProgress}" aria-valuenow="27.5" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <img src="../../assets/icons/star.svg" width="25" height="25" alt="">
+              <h5 class="mb-0 ml-1 d-flex align-self-center">{{profile.deathmatchStars}}</h5>
+            </div>
+            <div class="d-flex justify-content-center">
+              <p class="text-center mb-0 medic-score">{{ profile.deathmatchActualValue}}/<span>{{profile.deathmatchValueNeeded}}</span></p>
+            </div>
+            <h6 class="text-center mt-2 mb-0">{{profile.rushCode}}</h6>
+            <div class="d-flex align-self-center mt-0">
+
+              <div class="progress align-self-center ml-2 mr-2" style="height: 10px; width: 80%; background-color: #061325;">
+                <div class="progress-bar bg-warning" role="progressbar" [ngStyle]="{'width.%': profile.rushProgress}" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <img src="../../assets/icons/star.svg" width="25" height="25" alt="">
+              <h5 class="mb-0 ml-1 d-flex align-self-center">{{profile.rushStars}}</h5>
+            </div>
+            <div class="d-flex justify-content-center">
+              <p class="text-center mb-0 medic-score">{{profile.rushActualValue}}/<span>{{profile.rushValueNeeded}}</span></p>
+            </div>
+            <h6 class="text-center mt-2 mb-0">{{profile.obliterationCode}}</h6>
+            <div class="d-flex align-self-center mt-0">
+
+              <div class="progress align-self-center ml-2 mr-2" style="height: 10px; width: 80%; background-color: #061325;">
+                <div class="progress-bar bg-warning" role="progressbar" [ngStyle]="{'width.%': profile.obliterationProgress}" aria-valuenow="profile.obliterationProgress" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <img src="../../assets/icons/star.svg" width="25" height="25" alt="">
+              <h5 class="mb-0 ml-1 d-flex align-self-center">{{profile.obliterationStars}}</h5>
+
+            </div>
+            <div class="d-flex justify-content-center">
+              <p class="text-center mb-0 medic-score">{{profile.obliterationActualValue}}/<span>{{profile.obliterationValueNeeded}}</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="bg-custom-right">
+          <div class="border-line p-4" >
+            <h5 class="mb-0">Modes</h5>
+          </div>
+          <div class="bg-custom-right-desc pl-4 pr-4 pt-2 pb-3">
+            <div class="d-flex flex-row justify-content-between align-items-center ">
+              <h6 class="mb-0">Conquest</h6>
+              <p class="ml-3 mb-0">{{profile.conquest}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Deathmatch</h6>
+              <p class="ml-3 mb-0">{{profile.deathMatch}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Rush</h6>
+              <p class="ml-3 mb-0">{{profile.rush}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Domination</h6>
+              <p class="ml-3 mb-0">{{profile.domination}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Chain Link</h6>
+              <p class="ml-3 mb-0">{{profile.chainLink}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">CTF</h6>
+              <p class="ml-3 mb-0">{{profile.Ctf}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Obliteration</h6>
+              <p class="ml-3 mb-0">{{profile.obliteration}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Air Superiority</h6>
+              <p class="ml-3 mb-0">{{profile.airSuperiority}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Defuse</h6>
+              <p class="ml-3 mb-0">{{profile.defuse}}</p>
+            </div>
+            <div class="d-flex flex-row justify-content-between align-items-center mt-2">
+              <h6 class="mb-0">Carrier Assault</h6>
+              <p class="ml-3 mb-0">{{profile.carrierAssault}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p class="text-muted mt-5">Made with love </p>
+    </div>
+  </div>
+  <div class="container pt-3 vh-100" *ngIf="!loaded">
+
+  </div>
+</div>
