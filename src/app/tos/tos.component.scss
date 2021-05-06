@@ -1,0 +1,114 @@
+.body {
+    background-color: #061325;
+    font-family: "Varela Round" !important;
+    color: #9da9bb;
+  }
+  h2{
+    color: #d8e2ef;
+    font-size: xx-large;
+  }
+  
+  .bg-custom {
+    background-color: #0e1c2f;
+    background-clip: border-box;
+    border: 0 solid #061325;
+    border-radius: .375rem;
+  }
+  .border-line {
+    border-bottom: 0 solid #061325;
+    border-radius: .375rem .375rem 0rem 0rem;
+    background-color: #132238;
+  }
+
+  ul{
+      color: white;
+  }
+  li{
+      color:#9da9bb;
+  }
+  h4{
+    color:#d8e2ef;
+  }
+  
+
+
+  //ACCORDION
+  ::ng-deep ngb-accordion {
+    .btn-link, .btn-link.collapsed {
+    text-align: left;
+    width: 100%;
+    text-decoration: none !important;
+    }
+    .btn-link:hover {
+    text-align: left;
+    width: 100%;
+    text-decoration: none !important;
+    }
+
+    .card:first-child{
+      border-top:none;
+    }
+    .card:last-child{
+
+      border-bottom: none;
+    }
+   
+    .card{
+      background-color: transparent;
+      border-top: 1px solid #061325!important;
+      border-left: none;
+      border-right: none;
+      border-bottom: 1px solid #061325!important;
+    }
+   
+    .card-header {
+    background-color:#132238;
+    transition: 0.3s;
+    }
+    .card-header:hover {
+    background-color: #111e31;
+    }
+    .mb-0 {
+    width: 103%;
+    margin: -10px 0px 0px -20px;
+    padding-top: 10px;
+    }
+    .card-body{
+      background-color: #0e1c2f;
+      color:#9da9bb ;
+    }
+    .btn-link {
+      font-weight: 400;
+      color: white;
+      text-decoration: none;
+  }
+    .btn:focus, .btn.focus {
+      outline: 0;
+      box-shadow: none; 
+  }
+  }
+
+
+  //FOOTER
+
+  footer{
+
+    width: 100%;
+    //background-color: #132238;
+
+    bottom: 0;
+  }
+  footer a{
+    color: #9da9bb ;
+  }
+  footer a:hover{
+    color: #636b79 ;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+
+  .bf {
+    font-size: 0.75rem;
+  }
+
+  //#9da9bb - subtext, #1662cc - qst

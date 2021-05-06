@@ -3,6 +3,7 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { AppComponent } from './app.component';
 import { DetailsComponent } from './details/details.component';
 import { HomeComponent } from './home/home.component';
+import { TosComponent } from './tos/tos.component';
 
 const routes: Routes = [
 
@@ -11,6 +12,9 @@ const routes: Routes = [
   },
   {
     path: '', component: HomeComponent
+  },
+  {
+    path: 'tos', component: TosComponent
   }
 ];
 
