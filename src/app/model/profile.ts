@@ -26,6 +26,8 @@ export class Profile{
   rankImg: string = "";
   rankUpImg: string = "";
   rankUpPointsLeft: string = "";
+  rankUpName: string = "";
+  currentRankName: string = "";
 
   medalsCollected: string = "";
   medalsUnlocked: string = "";

@@ -7,7 +7,7 @@ import { Profile } from '../model/profile';
 })
 export class HttpService {
 
-  private url: string = "http://localhost:3000";
+  private url: string = "http://localhost/bfstats-server";
   public rawJson: any;
   public nickname: string = '';
 
@@ -15,18 +15,39 @@ export class HttpService {
 
 
   public searchQuery(nickname: string) {
-    return this.http.get(this.url+"/query/"+nickname)
+    return this.http.get(this.url+"/query", {
+      params: {
+        query: nickname
+      },
+      responseType: 'json'
+
+    });
   }
 
   public getDetails(id: any) {
-    return this.http.get(this.url+"/details/"+id);
+    return this.http.get(this.url+"/details", {
+      params: {
+        id: id
+      },
+      responseType: 'json'
+    });
   }
 
   public getDetailedStats(id: any) {
-    return this.http.get(this.url+"/detailedstats/"+id);
+    return this.http.get(this.url+"/detailedstats", {
+      params: {
+        id: id
+      },
+      responseType: 'json'
+    });
   }
 
   public getAwards(id: any) {
-    return this.http.get(this.url+"/detailaward/"+id);
+    return this.http.get(this.url+"/detailaward", {
+      params: {
+        id: id
+      },
+      responseType: 'json'
+    });
   }
 }

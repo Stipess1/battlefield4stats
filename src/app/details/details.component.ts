@@ -1,4 +1,5 @@
 import { DataSource } from '@angular/cdk/collections';
+import { leadingComment } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Profile } from '../model/profile';
@@ -80,7 +81,152 @@ export class DetailsComponent implements OnInit {
     "Premium_CH_Land_01": "c8cedd8a",
     "Premium_US_Truck_03": "2407e8d4",
     "Premium_US_Water_02": "c7272f86"
-};
+  };
+
+  public ranks = {
+    "RANK00": "RECRUIT",
+    "RANK01": "Private First Class",
+    "RANK02": "Private First Class II",
+    "RANK03": "Private First Class III",
+    "RANK04": "Private First Class IV",
+    "RANK05": "Private First Class V",
+    "RANK06": "Lance Corporal",
+    "RANK07": "Lance Corporal II",
+    "RANK08": "Lance Corporal III",
+    "RANK09": "Lance Corporal IV",
+    "RANK10": "Lance Corporal V",
+    "RANK11": "Corporal",
+    "RANK12": "Corporal II",
+    "RANK13": "Corporal III",
+    "RANK14": "Corporal IV",
+    "RANK15": "Corporal V",
+    "RANK16": "Sergeant",
+    "RANK17": "Sergeant II",
+    "RANK18": "Sergeant III",
+    "RANK19": "Sergeant IV",
+    "RANK20": "Sergeant V",
+    "RANK21": "Staff Sergeant",
+    "RANK22": "Staff Sergeant II",
+    "RANK23": "Staff Sergeant III",
+    "RANK24": "Staff Sergeant IV",
+    "RANK25": "Staff Sergeant V",
+    "RANK26": "Gunnery Sergeant",
+    "RANK27": "Gunnery Sergeant II",
+    "RANK28": "Gunnery Sergeant III",
+    "RANK29": "Gunnery Sergeant IV",
+    "RANK30": "Gunnery Sergeant V",
+    "RANK31": "Master Sergeant",
+    "RANK32": "Master Sergeant II",
+    "RANK33": "Master Sergeant III",
+    "RANK34": "Master Sergeant IV",
+    "RANK35": "Master Sergeant V",
+    "RANK36": "First Sergeant",
+    "RANK37": "First Sergeant II",
+    "RANK38": "First Sergeant III",
+    "RANK39": "First Sergeant IV",
+    "RANK40": "First Sergeant V",
+    "RANK41": "Master Gunnery Sergeant",
+    "RANK42": "Master Gunnery Sergeant II",
+    "RANK43": "Master Gunnery Sergeant III",
+    "RANK44": "Master Gunnery Sergeant IV",
+    "RANK45": "Master Gunnery Sergeant V",
+    "RANK46": "Sergeant Major",
+    "RANK47": "Sergeant Major II",
+    "RANK48": "Sergeant Major III",
+    "RANK49": "Sergeant Major IV",
+    "RANK50": "Sergeant Major V",
+    "RANK51": "Warrant Officer One",
+    "RANK52": "Warrant Officer One II",
+    "RANK53": "Warrant Officer One III",
+    "RANK54": "Warrant Officer One IV",
+    "RANK55": "Warrant Officer One V",
+    "RANK56": "Chief Warrant Officer Two",
+    "RANK57": "Chief Warrant Officer Two II",
+    "RANK58": "Chief Warrant Officer Two III",
+    "RANK59": "Chief Warrant Officer Two IV",
+    "RANK60": "Chief Warrant Officer Two V",
+    "RANK61": "Chief Warrant Officer Three",
+    "RANK62": "Chief Warrant Officer Three II",
+    "RANK63": "Chief Warrant Officer Three III",
+    "RANK64": "Chief Warrant Officer Three IV",
+    "RANK65": "Chief Warrant Officer Three V",
+    "RANK66": "Chief Warrant Officer Four",
+    "RANK67": "Chief Warrant Officer Four II",
+    "RANK68": "Chief Warrant Officer Four III",
+    "RANK69": "Chief Warrant Officer Four IV",
+    "RANK70": "Chief Warrant Officer Four V",
+    "RANK71": "Chief Warrant Officer Five",
+    "RANK72": "Chief Warrant Officer Five II",
+    "RANK73": "Chief Warrant Officer Five III",
+    "RANK74": "Chief Warrant Officer Five IV",
+    "RANK75": "Chief Warrant Officer Five V",
+    "RANK76": "Second Lieutenant",
+    "RANK77": "Second Lieutenant II",
+    "RANK78": "Second Lieutenant III",
+    "RANK79": "Second Lieutenant IV",
+    "RANK80": "Second Lieutenant V",
+    "RANK81": "First Lieutenant",
+    "RANK82": "First Lieutenant II",
+    "RANK83": "First Lieutenant III",
+    "RANK84": "First Lieutenant IV",
+    "RANK85": "First Lieutenant V",
+    "RANK86": "Captain",
+    "RANK87": "Captain II",
+    "RANK88": "Captain III",
+    "RANK89": "Captain IV",
+    "RANK90": "Captain V",
+    "RANK91": "Major",
+    "RANK92": "Major II",
+    "RANK93": "Major III",
+    "RANK94": "Major IV",
+    "RANK95": "Major V",
+    "RANK96": "Lieutenant Colonel",
+    "RANK97": "Lieutenant Colonel II",
+    "RANK98": "Lieutenant Colonel III",
+    "RANK99": "Lieutenant Colonel IV",
+    "RANK100": "Colonel",
+    "RANK101": "Colonel II",
+    "RANK102": "Colonel III",
+    "RANK103": "Colonel IV",
+    "RANK104": "Colonel V",
+    "RANK105": "Colonel VI",
+    "RANK106": "Colonel VII",
+    "RANK107": "Colonel VIII",
+    "RANK108": "Colonel IX",
+    "RANK109": "Colonel X",
+    "RANK110": "Brigadier General",
+    "RANK111": "Brigadier General II",
+    "RANK112": "Brigadier General III",
+    "RANK113": "Brigadier General IV",
+    "RANK114": "Brigadier General V",
+    "RANK115": "Brigadier General VI",
+    "RANK116": "Brigadier General VII",
+    "RANK117": "Brigadier General VIII",
+    "RANK118": "Brigadier General IX",
+    "RANK119": "Brigadier General X",
+    "RANK120": "Major General",
+    "RANK121": "Major General II",
+    "RANK122": "Major General III",
+    "RANK123": "Major General IV",
+    "RANK124": "Major General V",
+    "RANK125": "Major General VI",
+    "RANK126": "Major General VII",
+    "RANK127": "Major General VIII",
+    "RANK128": "Major General IX",
+    "RANK129": "Major General X",
+    "RANK130": "Lieutenant General",
+    "RANK131": "Lieutenant General II",
+    "RANK132": "Lieutenant General III",
+    "RANK133": "Lieutenant General IV",
+    "RANK134": "Lieutenant General V",
+    "RANK135": "Lieutenant General VI",
+    "RANK136": "Lieutenant General VII",
+    "RANK137": "Lieutenant General VIII",
+    "RANK138": "Lieutenant General IX",
+    "RANK139": "Lieutenant General X",
+    "RANK140": "General",
+
+  }
 
   constructor(public http: HttpService,
     private route: ActivatedRoute) { }
@@ -143,7 +289,6 @@ export class DetailsComponent implements OnInit {
         let flagCaptures = data['data']['generalStats']['flagCaptures'];
         let vehicleDestroyed = data['data']['generalStats']['vehiclesDestroyed'];
         let scorePerMinute = data['data']['generalStats']['scorePerMinute'];
-        console.log(scorePerMinute);
 
         let assault = data['data']['generalStats']['assault'];
         let combatScore = data['data']['generalStats']['combatScore'];
@@ -184,9 +329,9 @@ export class DetailsComponent implements OnInit {
         profile.rank = rank;
         profile.rankPoints = rankScore.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         profile.rankImg = "https://eaassets-a.akamaihd.net/bl-cdn/cdnprefix/production-5766-20200917/public/profile/warsaw/gamedata/rank/mediumns/r"+rank+".png";
-        rank = parseInt(rank) + 1;
-        if(rank != 141)
-          profile.rankUpImg ="https://eaassets-a.akamaihd.net/bl-cdn/cdnprefix/production-5766-20200917/public/profile/warsaw/gamedata/rank/mediumns/r"+rank+".png";
+        let temprank = parseInt(rank) + 1;
+        if(temprank != 141)
+          profile.rankUpImg ="https://eaassets-a.akamaihd.net/bl-cdn/cdnprefix/production-5766-20200917/public/profile/warsaw/gamedata/rank/mediumns/r"+temprank+".png";
 
         profile.score = score.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         profile.dogtags = dogtagsTaken.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -283,9 +428,35 @@ export class DetailsComponent implements OnInit {
           let array = Object.entries(this.l_xlarge);
           for(let i = 0; i < array.length; i++) {
               if(array[i][0] == picture) {
+
                 profile.picture = "http://d34ymitoc1pg7m.cloudfront.net/bf4/soldier/xlarge/"+array[i][0]+"-"+array[i][1]+".png";
                 break;
               }
+          }
+          array = Object.entries(this.ranks);
+          for (let i = 0; i < array.length; i++) {
+            console.log("RANK"+profile.rank);
+            
+            if("RANK"+profile.rank === array[i][0]) {
+              profile.currentRankName = array[i][1];
+              console.log(profile.rank + 1);
+              let rankUp = parseInt(rank) +  1;
+           
+              
+              if(rankUp != 140) {
+                console.log(array[i+1][1]);
+                
+                profile.rankUpName = array[i+1][1];
+              }
+                
+
+              break;
+            }
+          }
+
+          if(picture.includes("ch-assault")) {
+            picture = "default";
+            profile.picture = "http://d34ymitoc1pg7m.cloudfront.net/bf4/soldier/xlarge/default-a105f57e.png";
           }
 
           profile.platform = platform;
