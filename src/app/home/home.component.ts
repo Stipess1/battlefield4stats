@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
         if(data['data'].length == 1) {
           this.router.navigate(["/details", data['data'][0]['personaId'], data['data'][0]['user']['username']], {relativeTo: this.route});
         } else {
-
+          this.profiles = [];
           for (let i = 0; i < data['data'].length; i++) {
             let profile = new SearchProfile();
             profile.id = data['data'][i]['personaId'];
