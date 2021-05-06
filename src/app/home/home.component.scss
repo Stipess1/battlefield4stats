@@ -35,3 +35,21 @@ input:focus {
   border: 1px solid #344050;
   border-right: 0px;
 }
+
+.nickname {
+  font-size: large;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dropdown-m {
+  max-height: 24rem;
+  overflow: auto;
+  background-color: #132238;
+  border-radius: .375rem
+}
+
+.input-search, .dropdown-m{
+  width: 431px;
+}

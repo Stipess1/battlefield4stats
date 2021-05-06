@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SearchProfile } from '../model/searchProfile';
 import { HttpService } from '../service/http.service';
 
 @Component({
@@ -23,10 +24,12 @@ export class HomeComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+   console.log(this.profiles.length);
    
   }
 
   public nickname: string = "";
+  public profiles: SearchProfile[] = [];
 
   public submit() {
     console.log(this.nickname);
@@ -38,6 +41,15 @@ export class HomeComponent implements OnInit {
 
         if(data['data'].length == 1) {
           this.router.navigate(["/details", data['data'][0]['personaId'], data['data'][0]['user']['username']], {relativeTo: this.route});
+        } else {
+
+          for (let i = 0; i < data['data'].length; i++) {
+            let profile = new SearchProfile();
+            profile.id = data['data'][i]['personaId'];
+            profile.nickname = data['data'][i]['personaName'];
+            profile.gravatar = data['data'][i]['user']['gravatarMd5'];
+            this.profiles.push(profile);
+          }
         }
 
       });
@@ -53,6 +65,12 @@ export class HomeComponent implements OnInit {
 
     // mozda treba napravit component sve tamo redirect i onda od tamo na dalje
 
+  }
+
+  public player(player: SearchProfile) {
+    console.log("click");
+    
+    this.router.navigate(["/details", player.id, player.nickname], {relativeTo: this.route});
   }
 
   public set(platform: string) {
