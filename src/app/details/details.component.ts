@@ -3,6 +3,7 @@ import { leadingComment } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Profile } from '../model/profile';
+import { Weapon } from '../model/weapon';
 import { HttpService } from '../service/http.service';
 
 @Component({
@@ -14,7 +15,10 @@ export class DetailsComponent implements OnInit {
 
   private json: any;
   public profile: Profile = new Profile();
+  public weapons: Weapon[] = [];
+  public weaponsSlice: Weapon[] = [];
   public loaded: boolean = false;
+  public showAllToggle: boolean = false;
   public l_xlarge = {
     "ch-assault-oceanicgreen": "5e1e7e70",
     "ch-assault-urbanairborne": "7618b837",
@@ -231,7 +235,7 @@ export class DetailsComponent implements OnInit {
   constructor(public http: HttpService,
     private route: ActivatedRoute) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {   
     let id = this.route.snapshot.paramMap.get("id");
     let profile = new Profile();
     let nickname = this.route.snapshot.paramMap.get("nickname")
@@ -588,6 +592,29 @@ export class DetailsComponent implements OnInit {
           let currentRibbons = da['gameProgress'][3]['current'];
           profile.ribbonsUnlocked = currentRibbons;
 
+          this.http.getWeapons(id).subscribe((weapons: any) => {
+            let weaponStats = weapons['data']['mainWeaponStats'];
+            for(let i = 0; i < weaponStats.length; i++) {
+              console.log(weaponStats[i]);
+              let weapon = new Weapon();
+              if(weaponStats[i]['category'] != "Special") {
+                weapon.accuracy = weaponStats[i]['accuracy'].toFixed(2)
+                weapon.headshots = weaponStats[i]['headshots'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
+                weapon.kills = weaponStats[i]['kills'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
+                weapon.serviceStar = weaponStats[i]['serviceStars'];
+                weapon.serviceStarProgress = weaponStats[i]['serviceStarsProgress'];
+                weapon.shotsFired = weaponStats[i]['shotsFired'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
+                weapon.shotsHit = weaponStats[i]['shotsHit'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
+                weapon.slug = weaponStats[i]['slug'].toUpperCase();
+                weapon.time = this.secondsToHms(weaponStats[i]['timeEquipped']);
+                this.weapons.push(weapon);
+              }
+              
+            }
+
+            this.weaponsSlice = this.weapons.slice(0, 10);
+          });
+
           this.http.getAwards(id).subscribe((award:any) => {
 
 
@@ -631,6 +658,16 @@ export class DetailsComponent implements OnInit {
     });
 
 
+  }
+
+  public showAll() {
+    if(!this.showAllToggle) {
+      this.weaponsSlice = this.weapons;
+      this.showAllToggle = true;
+    } else {
+      this.weaponsSlice = this.weapons.slice(0, 10);
+      this.showAllToggle = false;
+    }
   }
 
   public secondsToHms(d: any) {

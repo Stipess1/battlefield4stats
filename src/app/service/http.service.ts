@@ -50,4 +50,13 @@ export class HttpService {
       responseType: 'json'
     });
   }
+
+  public getWeapons(id: any) {
+    return this.http.get(this.url+"/weapons", {
+      params: {
+        id: id
+      },
+      responseType: 'json'
+    });
+  }
 }
