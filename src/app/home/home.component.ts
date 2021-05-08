@@ -12,10 +12,10 @@ import { HttpService } from '../service/http.service';
 })
 export class HomeComponent implements OnInit {
 
-
   public bgPc: string = "";
   public bgXbox: string = "";
   public bgPs: string = "";
+  public loading: boolean = false;
 
   constructor(private service: HttpService, private router: Router,
     private route: ActivatedRoute,
@@ -32,17 +32,18 @@ export class HomeComponent implements OnInit {
   public profiles: SearchProfile[] = [];
 
   public submit() {
-    console.log(this.nickname);
+    
     if(this.nickname.length > 0) {
-      this.service.searchQuery(this.nickname).subscribe((data: any) => {
-        console.log(data);
+      this.profiles = [];
+      this.loading = true;
+      this.service.searchQuery(this.nickname).subscribe((data: any) => { 
         this.service.rawJson = data;
-        console.log(data['data'].length);
+        this.loading = false;
 
         if(data['data'].length == 1) {
           this.router.navigate(["/details", data['data'][0]['personaId'], data['data'][0]['user']['username']], {relativeTo: this.route});
         } else {
-          this.profiles = [];
+          
           for (let i = 0; i < data['data'].length; i++) {
             let profile = new SearchProfile();
             profile.id = data['data'][i]['personaId'];
@@ -63,7 +64,6 @@ export class HomeComponent implements OnInit {
       // });
     }
 
-    // mozda treba napravit component sve tamo redirect i onda od tamo na dalje
 
   }
 

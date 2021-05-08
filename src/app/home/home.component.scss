@@ -3,9 +3,8 @@
   height: 100vh;
   font-family: "Varela Round" !important;
 }
-p {
+h1, h2, p, h4  {
   color: #d8e2ef;
-  font-size: xx-large;
 }
 input {
   background-color: #061325;
@@ -52,4 +51,22 @@ input:focus {
 
 .input-search, .dropdown-m{
   width: 431px;
+}
+.dropdown-i {
+  transition-duration: 0.1s;
+}
+.dropdown-i:hover {
+  background-color: #0e1c2f;
+  transition-duration: 0.1s;
+}
+.bg-custom {
+  background-color: #0e1c2f;
+  background-clip: border-box;
+  border: 0 solid #061325;
+  border-radius: .375rem;
+}
+.border-line {
+  border-bottom: 0 solid #061325;
+  border-radius: .375rem .375rem 0rem 0rem;
+  background-color: #132238;
 }

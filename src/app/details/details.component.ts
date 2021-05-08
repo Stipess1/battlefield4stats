@@ -5,6 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Profile } from '../model/profile';
 import { Weapon } from '../model/weapon';
 import { HttpService } from '../service/http.service';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { SearchProfile } from '../model/searchProfile';
 
 @Component({
   selector: 'app-details',
@@ -13,12 +15,18 @@ import { HttpService } from '../service/http.service';
 })
 export class DetailsComponent implements OnInit {
 
-  private json: any;
+  faSearch = faSearch
   public profile: Profile = new Profile();
   public weapons: Weapon[] = [];
   public weaponsSlice: Weapon[] = [];
   public loaded: boolean = false;
   public showAllToggle: boolean = false;
+  public searchProfile: SearchProfile[] = [];
+  public nickname: string | null = "";
+  public id: string | null = "";
+  public currentPlayingServer: string = "";
+  public serverGuid: string = "";
+  public date: Date = new Date(1970, 0, 1);
   public l_xlarge = {
     "ch-assault-oceanicgreen": "5e1e7e70",
     "ch-assault-urbanairborne": "7618b837",
@@ -236,11 +244,40 @@ export class DetailsComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {   
-    let id = this.route.snapshot.paramMap.get("id");
+    this.id = this.route.snapshot.paramMap.get("id");
     let profile = new Profile();
-    let nickname = this.route.snapshot.paramMap.get("nickname")
-    profile.nickname = nickname;
-    this.http.getDetailedStats(id).subscribe((data: any) => {
+    this.nickname = this.route.snapshot.paramMap.get("nickname");
+    profile.nickname = this.nickname;
+
+    
+    if(typeof this.nickname === 'string') {
+      
+      this.http.searchQuery(this.nickname).subscribe((data: any) => {
+
+       
+        
+        for(let i = 0; i < data['data'].length; i++) {
+          let da = data['data'][i];
+          if(da['personaId'] == this.id?.toString()) {
+            this.date.setSeconds(da['user']['createdAt']);
+
+            if(da['user']['presence']['playingMp'] !== undefined) {
+              let serverName = da['user']['presence']['playingMp']['serverName'];
+              let guid = da['user']['presence']['playingMp']['serverGuid'];
+              this.profile.currentPlayingServerName = serverName
+              this.currentPlayingServer = this.profile.currentPlayingServerName;
+              this.profile.currentPlayingServerGuid = guid;
+              this.serverGuid = guid;
+            }
+            break;
+          }
+        }
+
+      });
+    }
+    // this.loaded = true;
+    // return;
+    this.http.getDetailedStats(this.id).subscribe((data: any) => {
         let kills = data['data']['generalStats']['kills'];
         let kdRatio = data['data']['generalStats']['kdRatio'];
         let accuracy = data['data']['generalStats']['accuracy'];
@@ -333,6 +370,7 @@ export class DetailsComponent implements OnInit {
         profile.rank = rank;
         profile.rankPoints = rankScore.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         profile.rankImg = "https://eaassets-a.akamaihd.net/bl-cdn/cdnprefix/production-5766-20200917/public/profile/warsaw/gamedata/rank/mediumns/r"+rank+".png";
+        profile.rankSmallImg = "https://eaassets-a.akamaihd.net/bl-cdn/cdnprefix/production-5766-20200917/public/profile/warsaw/gamedata/rank/smallns/r"+rank+".png";
         let temprank = parseInt(rank) + 1;
         if(temprank != 141)
           profile.rankUpImg ="https://eaassets-a.akamaihd.net/bl-cdn/cdnprefix/production-5766-20200917/public/profile/warsaw/gamedata/rank/mediumns/r"+temprank+".png";
@@ -402,7 +440,7 @@ export class DetailsComponent implements OnInit {
         let killHit = (parseInt(kills) / parseInt(shotsHit)) * 100;
         profile.killHitPercentage = killHit.toFixed(2);
 
-        this.http.getDetails(id).subscribe((data: any) => {
+        this.http.getDetails(this.id).subscribe((data: any) => {
           let da = data['data']['overviewStats'];
 
           let picture = undefined;
@@ -439,17 +477,13 @@ export class DetailsComponent implements OnInit {
           }
           array = Object.entries(this.ranks);
           for (let i = 0; i < array.length; i++) {
-            console.log("RANK"+profile.rank);
             
             if("RANK"+profile.rank === array[i][0]) {
               profile.currentRankName = array[i][1];
-              console.log(profile.rank + 1);
               let rankUp = parseInt(rank) +  1;
            
-              
-              if(rankUp != 140) {
-                console.log(array[i+1][1]);
-                
+              if(rankUp != 141) {
+
                 profile.rankUpName = array[i+1][1];
               }
                 
@@ -592,10 +626,9 @@ export class DetailsComponent implements OnInit {
           let currentRibbons = da['gameProgress'][3]['current'];
           profile.ribbonsUnlocked = currentRibbons;
 
-          this.http.getWeapons(id).subscribe((weapons: any) => {
+          this.http.getWeapons(this.id).subscribe((weapons: any) => {
             let weaponStats = weapons['data']['mainWeaponStats'];
             for(let i = 0; i < weaponStats.length; i++) {
-              console.log(weaponStats[i]);
               let weapon = new Weapon();
               if(weaponStats[i]['category'] != "Special") {
                 weapon.accuracy = weaponStats[i]['accuracy'].toFixed(2)
@@ -615,7 +648,7 @@ export class DetailsComponent implements OnInit {
             this.weaponsSlice = this.weapons.slice(0, 10);
           });
 
-          this.http.getAwards(id).subscribe((award:any) => {
+          this.http.getAwards(this.id).subscribe((award:any) => {
 
 
             let da = award['data']['ribbonAwardByCode'];
@@ -668,6 +701,14 @@ export class DetailsComponent implements OnInit {
       this.weaponsSlice = this.weapons.slice(0, 10);
       this.showAllToggle = false;
     }
+  }
+
+  public loadServerInfo() {
+    
+  }
+
+  public nickInput(nick: string) {
+
   }
 
   public secondsToHms(d: any) {

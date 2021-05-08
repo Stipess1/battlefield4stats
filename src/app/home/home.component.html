@@ -2,34 +2,77 @@
   <div class="container-fluid">
     <div class="container h-100">
 
-      <div class="h-100 d-flex align-items-center flex-column pt-5" style="padding-bottom: 150px;">
-        <div>
-          <p>BATTLEFIELD 4 STATS</p>
+      <div class="h-100 d-flex align-items-center flex-column pt-5 mb-5">
+        <div class="mb-5">
+          <h1 >BATTLEFIELD 4 STATS</h1>
         </div>
         <div class="flex-row d-flex input-search">
           <div class=" flex-row d-flex system-layout align-items-center" style="height: 45px; overflow: hidden;">
-            <div class="system pr-3 pl-3 justify-content-center align-items-center d-flex" [ngStyle]="{'background-color': bgPc}" (click)="set('origin')">
+            <div class="system pr-3 pl-3 justify-content-center align-items-center d-flex"
+              [ngStyle]="{'background-color': bgPc}" (click)="set('origin')">
               <img src="../assets/icons/Origin.png" height="40" alt="">
             </div>
-            <div class="system pr-3 pl-3 justify-content-center align-items-center d-flex" [ngStyle]="{'background-color': bgPs}" (click)="set('ps')">
-              <img src="../assets/icons/playstation.svg"  height="40" alt="">
+            <div class="system pr-3 pl-3 justify-content-center align-items-center d-flex"
+              [ngStyle]="{'background-color': bgPs}" (click)="set('ps')">
+              <img src="../assets/icons/playstation.svg" height="40" alt="">
             </div>
-            <div class="system pr-3 pl-3 justify-content-center align-items-center d-flex" [ngStyle]="{'background-color': bgXbox}" (click)="set('xbox')">
-              <img src="../assets/icons/xbox-logo.svg"  height="35" alt="">
+            <div class="system pr-3 pl-3 justify-content-center align-items-center d-flex"
+              [ngStyle]="{'background-color': bgXbox}" (click)="set('xbox')">
+              <img src="../assets/icons/xbox-logo.svg" height="35" alt="">
             </div>
           </div>
-          <input type="text" #search  placeholder="Nickname" (input)="nickInput(search.value)" (keydown.enter)="submit()" >
+          <input type="text" #search placeholder="Nickname" (input)="nickInput(search.value)"
+            (keydown.enter)="submit()">
         </div>
-        <div class="d-flex mt-2 flex-column dropdown-m shadow pb-3 pt-3" *ngIf="this.profiles.length > 0">
-          <p style="font-size: large;" class="pl-3">Players ({{this.profiles.length}})</p>
-          <div class="dropdown-i d-flex justify-content-start pl-3 pr-3 pb-2" *ngFor="let profile of this.profiles"  style="cursor: pointer;" (click)="player(profile)">
-            <img src="https://secure.gravatar.com/avatar/{{profile.gravatar}}?s=36&d=https%3A%2F%2Feaassets-a.akamaihd.net%2Fbattlelog%2Fdefaultavatars%2Fdefault-avatar-36.png" style="border-radius: 100%;" width="50" alt="" class="mr-4">
+        <div class="d-flex mt-2 flex-column dropdown-m shadow pb-3 pt-3" *ngIf="loading || this.profiles.length > 0">
+          <div class="spinner-border text-primary text-center m-auto" *ngIf="loading" role="status">
+          </div>
+          <p style="font-size: large;" class="pl-3" *ngIf="this.profiles.length > 0">Players ({{this.profiles.length}})</p>
+          <div class="dropdown-i d-flex justify-content-start pl-3 pr-3 pb-1 pt-1" *ngFor="let profile of this.profiles"
+            style="cursor: pointer;" (click)="player(profile)">
+            <img
+              src="https://secure.gravatar.com/avatar/{{profile.gravatar}}?s=36&d=https%3A%2F%2Feaassets-a.akamaihd.net%2Fbattlelog%2Fdefaultavatars%2Fdefault-avatar-36.png"
+              style="border-radius: 100%;" width="50" alt="" class="mr-4">
             <p class="nickname mb-0 align-self-center">{{profile.nickname}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="about">
+        <div class="bg-custom">
+          <div class="border-line p-2">
+            <h4 class="mb-0 p-2">About</h4>
+          </div>
+
+          <div class="p-3">
+            <p class="mb-0">Battlefield 4 Stats provides players statistic</p>
           </div>
 
         </div>
       </div>
-
+      <div class="mt-5">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-lg-3">
+            <p class="text-muted ">2021 © Battlefield 4 Stats</p>
+          </div>
+          <div class="col-md-6 col-sm-6 col-lg-3">
+            <p><a href="/tos" class="text-muted">Contact Us</a></p>
+          </div>
+          <div class="col-md-6 col-sm-6 col-lg-3">
+            <p><a href="/tos" class="text-muted">Privacy Policy</a></p>
+          </div>
+          <div class="col-md-6 col-sm-6 col-lg-3">
+            <p><a href="/tos" class="text-muted">Terms of Service</a></p>
+          </div>
+        </div>
+ 
+        <p class="text-muted " style="font-size: small;">
+          Battlefield is a registered trademark of Electronic Arts. This website uses data provided pursuant to
+          Electronic Arts’ Battlefield Stats Terms.
+          Trademarks are the property of their respective owners.
+          Game materials copyright Electronic Arts Inc. Electronic Arts has not endorsed and is not responsible for this
+          site or its content.
+        </p>
+      </div>
     </div>
   </div>
 

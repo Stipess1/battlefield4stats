@@ -1,17 +1,27 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { Profile } from '../model/profile';
+import { SearchProfile } from '../model/searchProfile';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
 
-  private url: string = "http://localhost/bfstats-server";
+  private url: string = "";
   public rawJson: any;
   public nickname: string = '';
+  public profiles: SearchProfile[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    if(environment.production) {
+      this.url = "http://api.youplayandroid.com/api";
+    } else {
+      this.url = "http://localhost/bfstats-server"
+    }
+
+   }
 
 
   public searchQuery(nickname: string) {
@@ -58,5 +68,13 @@ export class HttpService {
       },
       responseType: 'json'
     });
+  }
+
+  public getServerInfo(guid: string) {
+    
+  }
+
+  public query() {
+    
   }
 }

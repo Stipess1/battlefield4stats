@@ -13,6 +13,7 @@ export class Profile{
   picture: string = "";
   platform: number = 0;
   nickname: string | null = "";
+  enlisted: string = "";
 
   losses: string = "";
   roundsPlayed: string = "";
@@ -24,6 +25,7 @@ export class Profile{
   rank: number = 0;
   rankUpPercentage: number = 0;
   rankImg: string = "";
+  rankSmallImg: string = "";
   rankUpImg: string = "";
   rankUpPointsLeft: string = "";
   rankUpName: string = "";
@@ -154,7 +156,9 @@ export class Profile{
   obliterationActualValue: number = 0;
   obliterationValueNeeded: number = 0;
 
-
+  currentPlayingServerName: string = "";
+  currentPlayingServerGuid: string = "";
+  
 
 
 

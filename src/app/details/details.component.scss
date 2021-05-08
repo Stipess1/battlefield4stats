@@ -2,7 +2,7 @@
   background-color: #061325;
   font-family: "Varela Round" !important;
 }
- h5, span, h6, h3, .slug {
+ h5, span, h6, h3, .slug, .brand {
   color: #d8e2ef;
 }
 
@@ -140,6 +140,21 @@
   position: absolute !important; 
   color: green;
   font-weight: bold;
-  padding-left: 20px;
+  padding-left: 30px;
+}
+fa-icon {
+  position: absolute;
+  margin-left: 10px;
+  margin-top: 4px;
+  color: #4d5969;
+}
+.brand {
+  text-decoration: none;
+}
+li {
+  display: inline;
+}
+.nick-link {
+  text-decoration-color: #4d5969;
 }
 // #132238 light #2c7be5;
