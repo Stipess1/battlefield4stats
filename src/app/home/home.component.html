@@ -1,13 +1,13 @@
 <div class="body">
   <div class="container-fluid">
-    <div class="container h-100">
+    <div class="container vh-100 position-relative">
 
-      <div class="h-100 d-flex align-items-center flex-column pt-5 mb-5">
+      <div class="d-flex align-items-center flex-column pt-5 mb-5">
         <div class="mb-5">
           <h1 >BATTLEFIELD 4 STATS</h1>
         </div>
         <div class="flex-row d-flex input-search">
-          <div class=" flex-row d-flex system-layout align-items-center" style="height: 45px; overflow: hidden;">
+          <!-- <div class=" flex-row d-flex system-layout align-items-center" style="height: 45px; overflow: hidden;">
             <div class="system pr-3 pl-3 justify-content-center align-items-center d-flex"
               [ngStyle]="{'background-color': bgPc}" (click)="set('origin')">
               <img src="../assets/icons/Origin.png" height="40" alt="">
@@ -20,11 +20,12 @@
               [ngStyle]="{'background-color': bgXbox}" (click)="set('xbox')">
               <img src="../assets/icons/xbox-logo.svg" height="35" alt="">
             </div>
-          </div>
-          <input type="text" #search placeholder="Nickname" (focusout)="this.profiles = []; loaded = false" (input)="nickInput(search.value)"
-            (keydown.enter)="submit()">
+          </div> -->
+          <input type="text" #search placeholder="Nickname..." class="shadow" (input)="nickInput(search.value)"
+            (keydown.enter)="submit()" >
+            <fa-icon [icon]="close" (click)="this.profiles = []; loaded = false; search.value = ''" class="close-icon" ></fa-icon>
         </div>
-        <div class="d-flex mt-2 flex-column dropdown-m shadow pb-3 pt-3 position-absolute" style="top:191px; z-index: 1000;" *ngIf="loading || this.profiles.length > 0 || loaded">
+        <div class="d-flex mt-2 flex-column dropdown-m shadow pb-3 pt-3 position-absolute" style="top: 191px; z-index: 1000; margin-right: 9px;" *ngIf="loading || this.profiles.length > 0 || loaded">
           <div class="spinner-border text-primary text-center m-auto" *ngIf="loading" role="status">
           </div>
           <div *ngIf="loaded && this.profiles.length == 0">
@@ -52,7 +53,7 @@
 
         </div>
       </div>
-      <div class="mt-5">
+      <div class="mt-5 ">
         <div class="row">
           <div class="col-md-6 col-sm-6 col-lg-4">
             <p class="text-muted ">2021 © Battlefield 4 Stats</p>

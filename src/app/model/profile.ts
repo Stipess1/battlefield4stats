@@ -14,6 +14,7 @@ export class Profile{
   platform: number = 0;
   nickname: string | null = "";
   enlisted: string = "";
+  tag: string = "";
 
   losses: string = "";
   roundsPlayed: string = "";

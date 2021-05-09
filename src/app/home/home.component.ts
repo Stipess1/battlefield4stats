@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { faDonate, faEnvelope, faHandshake, faUserShield } from '@fortawesome/free-solid-svg-icons';
+import { faDonate, faEnvelope, faHandshake, faTimes, faUserShield } from '@fortawesome/free-solid-svg-icons';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SearchProfile } from '../model/searchProfile';
 import { HttpService } from '../service/http.service';
@@ -18,11 +18,13 @@ export class HomeComponent implements OnInit {
   privacy = faUserShield;
   mail = faEnvelope;
   tos = faHandshake;
+  close = faTimes;
   public bgPc: string = "";
   public bgXbox: string = "";
   public bgPs: string = "";
   public loading: boolean = false;
   public loaded: boolean = false;
+  public showClose: boolean = false;
 
   constructor(private service: HttpService, private router: Router,
     private route: ActivatedRoute,
@@ -88,23 +90,6 @@ export class HomeComponent implements OnInit {
     this.router.navigate(["/details", player.id, player.nickname], {relativeTo: this.route});
   }
 
-  public set(platform: string) {
-    console.log(platform);
-    
-    if(platform === "origin") {
-      this.bgPc = "#212933"
-      this.bgXbox = "";
-      this.bgPs = "";
-    } else if(platform === "xbox") {
-      this.bgPc = ""
-      this.bgXbox = "#212933";
-      this.bgPs = "";
-    } else {
-      this.bgPc = ""
-      this.bgXbox = "";
-      this.bgPs = "#212933";
-    }
-  }
 
   public details() {
     this.router.navigate(["/details"], {relativeTo: this.route});

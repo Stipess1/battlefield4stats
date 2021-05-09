@@ -5,8 +5,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Profile } from '../model/profile';
 import { Weapon } from '../model/weapon';
 import { HttpService } from '../service/http.service';
-import { faDonate, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faDonate, faEnvelope, faHandshake, faSearch, faUserShield } from '@fortawesome/free-solid-svg-icons';
 import { SearchProfile } from '../model/searchProfile';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-details',
@@ -16,7 +17,10 @@ import { SearchProfile } from '../model/searchProfile';
 export class DetailsComponent implements OnInit {
 
   faSearch = faSearch
-  donate = faDonate
+  donate = faDonate;
+  privacy = faUserShield;
+  mail = faEnvelope;
+  tos = faHandshake;
   public profile: Profile = new Profile();
   public weapons: Weapon[] = [];
   public weaponsSlice: Weapon[] = [];
@@ -242,7 +246,8 @@ export class DetailsComponent implements OnInit {
   }
 
   constructor(public http: HttpService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private modal: NgbModal) { }
 
   ngOnInit(): void {   
     this.id = this.route.snapshot.paramMap.get("id");
@@ -467,6 +472,8 @@ export class DetailsComponent implements OnInit {
           profile.srsProgressSupport = serviceStarProgressSupport;
           profile.srsProgressReacon = serviceStarProgressRecon;
           profile.srsProgressCommander = serviceStarProgressCommander;
+
+          profile.tag = data['data']['viewedPersonaInfo']['tag'];
 
           let array = Object.entries(this.l_xlarge);
           for(let i = 0; i < array.length; i++) {
@@ -710,6 +717,10 @@ export class DetailsComponent implements OnInit {
 
   public nickInput(nick: string) {
 
+  }
+
+  public openDonateModal(content: any) {
+    this.modal.open(content, {centered: true});
   }
 
   public secondsToHms(d: any) {

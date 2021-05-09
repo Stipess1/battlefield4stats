@@ -80,15 +80,18 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 ::-webkit-scrollbar {
-  width: 15px;
+  width: 15px !important;
 }
 ::-webkit-scrollbar-track {
-  background: #061325;
+  background: #061325 !important;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1a2e4d;
+  background: #1a2e4d !important;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #1a2e4d;
+  background: #1a2e4d !important;
 }
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

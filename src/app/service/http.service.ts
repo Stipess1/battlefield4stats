@@ -71,9 +71,15 @@ export class HttpService {
   }
 
   public getServerInfo(guid: string) {
-    
+    return this.http.get(this.url+"/serverinfo", {
+      params: {
+        guid: guid
+      },
+      responseType: 'json'
+    });
   }
 
+  // query input 
   public query() {
     
   }
