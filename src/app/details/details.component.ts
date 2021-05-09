@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Profile } from '../model/profile';
 import { Weapon } from '../model/weapon';
 import { HttpService } from '../service/http.service';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faDonate, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { SearchProfile } from '../model/searchProfile';
 
 @Component({
@@ -16,6 +16,7 @@ import { SearchProfile } from '../model/searchProfile';
 export class DetailsComponent implements OnInit {
 
   faSearch = faSearch
+  donate = faDonate
   public profile: Profile = new Profile();
   public weapons: Weapon[] = [];
   public weaponsSlice: Weapon[] = [];

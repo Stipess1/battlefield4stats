@@ -14,7 +14,7 @@
     </div>
 
     <div class="search-input mb-4 mt-3">
-      <fa-icon [icon]="faSearch"></fa-icon>
+      <fa-icon class="faSearch" [icon]="faSearch"></fa-icon>
       <input type="text" placeholder="Search..." #search (input)="nickInput(search.value)">
     </div>
     <div class="d-flex align-items-center playing mb-4 p-3" *ngIf="currentPlayingServer != ''">
@@ -601,17 +601,20 @@
     </div>
     <div class="mt-5">
       <div class="row">
-        <div class="col-md-6 col-sm-6 col-lg-3">
+        <div class="col-md-6 col-sm-6 col-lg-4">
           <p class="text-muted ">2021 © Battlefield 4 Stats</p>
         </div>
-        <div class="col-md-6 col-sm-6 col-lg-3">
-          <p><a href="/tos" class="text-muted">Contact Us</a></p>
+        <div class="col-md-6 col-sm-6 col-lg-2">
+          <p><a href="/tos" class="text-muted foot">Contact Us</a></p>
         </div>
-        <div class="col-md-6 col-sm-6 col-lg-3">
-          <p><a href="/tos" class="text-muted">Privacy Policy</a></p>
+        <div class="col-md-6 col-sm-6 col-lg-2">
+          <p><a href="/tos" class="text-muted foot">Privacy Policy</a></p>
         </div>
-        <div class="col-md-6 col-sm-6 col-lg-3">
-          <p><a href="/tos" class="text-muted">Terms of Service</a></p>
+        <div class="col-md-6 col-sm-6 col-lg-2">
+          <p><a href="/tos" class="text-muted foot">Terms of Service</a></p>
+        </div>
+        <div class="col-md-6 col-sm-6 col-lg-2">
+          <p><a href="/tos" class="text-muted foot"><fa-icon [icon]="donate"></fa-icon> Donate</a></p>
         </div>
       </div>
 

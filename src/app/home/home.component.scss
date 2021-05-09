@@ -5,6 +5,7 @@
 }
 h1, h2, p, h4  {
   color: #d8e2ef;
+  font-family: "Varela Round";
 }
 input {
   background-color: #061325;
@@ -69,4 +70,13 @@ input:focus {
   border-bottom: 0 solid #061325;
   border-radius: .375rem .375rem 0rem 0rem;
   background-color: #132238;
+}
+.foot {
+  text-decoration: none;
+  transition-duration: 0.2s;
+  font-size: smaller;
+}
+.foot:hover {
+  transition-duration: 0.2s;
+  color: #d8e2ef !important;
 }

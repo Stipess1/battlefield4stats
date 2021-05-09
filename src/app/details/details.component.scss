@@ -142,7 +142,7 @@
   font-weight: bold;
   padding-left: 30px;
 }
-fa-icon {
+.faSearch {
   position: absolute;
   margin-left: 10px;
   margin-top: 4px;
@@ -156,5 +156,14 @@ li {
 }
 .nick-link {
   text-decoration-color: #4d5969;
+}
+.foot {
+  text-decoration: none;
+  transition-duration: 0.2s;
+  font-size: smaller;
+}
+.foot:hover {
+  transition-duration: 0.2s;
+  color: #d8e2ef !important;
 }
 // #132238 light #2c7be5;

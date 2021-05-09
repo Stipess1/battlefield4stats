@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { faDonate, faEnvelope, faHandshake, faUserShield } from '@fortawesome/free-solid-svg-icons';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SearchProfile } from '../model/searchProfile';
 import { HttpService } from '../service/http.service';
 
@@ -12,19 +14,25 @@ import { HttpService } from '../service/http.service';
 })
 export class HomeComponent implements OnInit {
 
+  donate = faDonate;
+  privacy = faUserShield;
+  mail = faEnvelope;
+  tos = faHandshake;
   public bgPc: string = "";
   public bgXbox: string = "";
   public bgPs: string = "";
   public loading: boolean = false;
+  public loaded: boolean = false;
 
   constructor(private service: HttpService, private router: Router,
     private route: ActivatedRoute,
     // private dialog: MatDialog
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    public modal: NgbModal
     ) { }
 
   ngOnInit(): void {
-   console.log(this.profiles.length);
+  
    
   }
 
@@ -32,10 +40,11 @@ export class HomeComponent implements OnInit {
   public profiles: SearchProfile[] = [];
 
   public submit() {
-    
+
     if(this.nickname.length > 0) {
       this.profiles = [];
       this.loading = true;
+      this.loaded = false;
       this.service.searchQuery(this.nickname).subscribe((data: any) => { 
         this.service.rawJson = data;
         this.loading = false;
@@ -51,6 +60,8 @@ export class HomeComponent implements OnInit {
             profile.gravatar = data['data'][i]['user']['gravatarMd5'];
             this.profiles.push(profile);
           }
+
+          this.loaded = true;
         }
 
       });
@@ -65,6 +76,10 @@ export class HomeComponent implements OnInit {
     }
 
 
+  }
+
+  public openDonateModal(content: any) {
+    this.modal.open(content, {centered: true});
   }
 
   public player(player: SearchProfile) {
