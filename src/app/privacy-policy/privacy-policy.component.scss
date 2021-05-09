@@ -1,0 +1,54 @@
+.body {
+    background-color: #061325;
+    font-family: "Varela Round" !important;
+    color: #9da9bb;
+  }
+  h2{
+    color: #d8e2ef;
+    font-size: xx-large;
+  }
+  
+  .bg-custom {
+    background-color: #0e1c2f;
+    background-clip: border-box;
+    border: 0 solid #061325;
+    border-radius: .375rem;
+  }
+  .border-line {
+    border-bottom: 0 solid #061325;
+    border-radius: .375rem .375rem 0rem 0rem;
+    background-color: #132238;
+  }
+
+  ul{
+      color: white;
+  }
+  li{
+      color:#9da9bb;
+  }
+  h4{
+    color:#d8e2ef;
+  }
+  
+  //footer
+  footer{
+
+    width: 100%;
+    //background-color: #132238;
+
+    bottom: 0;
+  }
+  footer a{
+    color: #9da9bb ;
+  }
+  footer a:hover{
+    color: #636b79 ;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+
+  .bf {
+    font-size: 0.75rem;
+  }
+
+  //#9da9bb - subtext, #1662cc - qst
