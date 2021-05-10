@@ -48,6 +48,8 @@ export class HomeComponent implements OnInit {
       this.loading = true;
       this.loaded = false;
       this.service.searchQuery(this.nickname).subscribe((data: any) => { 
+        console.log(data);
+        
         this.service.rawJson = data;
         this.loading = false;
 

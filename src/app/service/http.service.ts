@@ -18,24 +18,28 @@ export class HttpService {
     if(environment.production) {
       this.url = "http://api.youplayandroid.com/api";
     } else {
-      this.url = "http://localhost/bfstats-server"
+      this.url = "http://localhost:4200/api"
     }
 
    }
 
 
   public searchQuery(nickname: string) {
-    return this.http.get(this.url+"/query", {
-      params: {
-        query: nickname
-      },
-      responseType: 'json'
+    // return this.http.get("http://localhost:4200/api/warsawoverviewpopulate/889021603/1")
+    let formData = new FormData();
+    formData.append("query", nickname);
+    return this.http.post(this.url+"/search/query/", formData);
+    // return this.http.get(this.url+"/query", {
+    //   params: {
+    //     query: nickname
+    //   },
+    //   responseType: 'json'
 
-    });
+    // });
   }
 
   public getDetails(id: any) {
-    return this.http.get(this.url+"/details", {
+    return this.http.get(this.url+"/warsawoverviewpopulate/"+id+"/1", {
       params: {
         id: id
       },
@@ -44,7 +48,7 @@ export class HttpService {
   }
 
   public getDetailedStats(id: any) {
-    return this.http.get(this.url+"/detailedstats", {
+    return this.http.get(this.url+"/warsawdetailedstatspopulate/"+id+"/1", {
       params: {
         id: id
       },
@@ -53,7 +57,7 @@ export class HttpService {
   }
 
   public getAwards(id: any) {
-    return this.http.get(this.url+"/detailaward", {
+    return this.http.get(this.url+"/warsawawardspopulate/"+id+"/1", {
       params: {
         id: id
       },
@@ -62,7 +66,7 @@ export class HttpService {
   }
 
   public getWeapons(id: any) {
-    return this.http.get(this.url+"/weapons", {
+    return this.http.get(this.url+"/warsawWeaponsPopulateStats/"+id+"/đa  1/stats", {
       params: {
         id: id
       },

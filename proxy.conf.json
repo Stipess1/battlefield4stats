@@ -1,0 +1,10 @@
+{
+    "/api": {
+      "target": "https://battlelog.battlefield.com/bf4",
+      "secure": true,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/api": ""
+      }
+    }
+  }
