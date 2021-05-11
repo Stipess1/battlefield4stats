@@ -66,7 +66,7 @@ export class HttpService {
   }
 
   public getWeapons(id: any) {
-    return this.http.get(this.url+"/warsawWeaponsPopulateStats/"+id+"/đa  1/stats", {
+    return this.http.get(this.url+"/warsawWeaponsPopulateStats/"+id+"/1/stats", {
       params: {
         id: id
       },

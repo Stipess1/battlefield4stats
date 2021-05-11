@@ -1,5 +1,5 @@
 {
-    "/api": {
+    "/api/*": {
       "target": "https://battlelog.battlefield.com/bf4",
       "secure": true,
       "changeOrigin": true,
