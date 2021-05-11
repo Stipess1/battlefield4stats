@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
 
 
 
-  constructor() {
+  constructor(public service: HttpService) {
 
   }
 

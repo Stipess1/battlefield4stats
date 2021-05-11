@@ -14,10 +14,7 @@ import { HttpService } from '../service/http.service';
 })
 export class HomeComponent implements OnInit {
 
-  donate = faDonate;
-  privacy = faUserShield;
-  mail = faEnvelope;
-  tos = faHandshake;
+
   close = faTimes;
   public bgPc: string = "";
   public bgXbox: string = "";
@@ -34,7 +31,7 @@ export class HomeComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-  
+    this.service.inHome = true;
    
   }
 

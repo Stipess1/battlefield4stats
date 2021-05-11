@@ -12,6 +12,7 @@ import { MaterialModule } from './material/material.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TosComponent } from './tos/tos.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
     HomeComponent,
     DetailsComponent,
     TosComponent,
-    PrivacyPolicyComponent
+    PrivacyPolicyComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

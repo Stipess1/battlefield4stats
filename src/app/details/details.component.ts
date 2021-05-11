@@ -24,7 +24,6 @@ export class DetailsComponent implements OnInit {
   public profile: Profile = new Profile();
   public weapons: Weapon[] = [];
   public weaponsSlice: Weapon[] = [];
-  public loaded: boolean = false;
   public showAllToggle: boolean = false;
   public searchProfile: SearchProfile[] = [];
   public nickname: string | null = "";
@@ -250,6 +249,7 @@ export class DetailsComponent implements OnInit {
     private modal: NgbModal) { }
 
   ngOnInit(): void {   
+    this.http.inHome = false;
     this.id = this.route.snapshot.paramMap.get("id");
     let profile = new Profile();
     this.nickname = this.route.snapshot.paramMap.get("nickname");
@@ -689,7 +689,7 @@ export class DetailsComponent implements OnInit {
             profile.ribbonsPerRound = (count / roundPlayed).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
             this.profile = profile;
-            this.loaded = true;
+            this.http.loaded = true;
           });
 
         });

@@ -13,6 +13,8 @@ export class HttpService {
   public rawJson: any;
   public nickname: string = '';
   public profiles: SearchProfile[] = [];
+  public loaded: boolean = false;
+  public inHome: boolean = true;
 
   constructor(private http: HttpClient) {
     if(environment.production) {

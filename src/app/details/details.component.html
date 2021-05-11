@@ -1,5 +1,5 @@
 <div class="body">
-  <div class="container pb-4" *ngIf="loaded && profile.time != undefined">
+  <div class="container pb-4" *ngIf="this.http.loaded && profile.time != undefined">
     <div class="nav w-100 shadow sticky-top bg-custom p-3" style="border-radius: 0 0 .375rem .375rem;">
       <a class=" brand d-flex align-items-center" style="font-size: larger;" href="">BF4 Stats</a>
       <ng-template #tipEnlisted>{{this.date}}</ng-template>
@@ -599,44 +599,10 @@
         </div>
       </div>
     </div>
-    <div class="mt-5">
-      <div class="row">
-        <div class="col-md-6 col-sm-6 col-lg-4">
-          <p class="text-muted ">2021 © Battlefield 4 Stats</p>
-        </div>
-        <div class="col-md-6 col-sm-6 col-lg-2">
-          <p><a href="mailto:stjepstjepanovic@gmail.com" class="text-muted foot"><fa-icon [icon]="mail"></fa-icon> Contact Us</a></p>
-        </div>
-        <div class="col-md-6 col-sm-6 col-lg-2">
-          <p><a href="/privacy-policy" target="_blank" class="text-muted foot"><fa-icon [icon]="privacy"></fa-icon> Privacy Policy</a></p>
-        </div>
-        <div class="col-md-6 col-sm-6 col-lg-2">
-          <p><a href="/tos" target="_blank" class="text-muted foot"><fa-icon [icon]="tos"></fa-icon> Terms of Service</a></p>
-        </div>
-        <div class="col-md-6 col-sm-6 col-lg-2">
-          <p><a style="cursor: pointer;" (click)="openDonateModal(content)" class="text-muted foot"><fa-icon [icon]="donate"></fa-icon> Donate</a></p>
-        </div>
-      </div>
-
-      <p class="text-muted " style="font-size: small;">
-        Battlefield is a registered trademark of Electronic Arts. This website uses data provided pursuant to
-        Electronic Arts’ Battlefield Stats Terms.
-        Trademarks are the property of their respective owners.
-        Game materials copyright Electronic Arts Inc. Electronic Arts has not endorsed and is not responsible for this
-        site or its content.
-      </p>
-    </div>
   </div>
-  <div class="container pt-3 vh-100 d-flex flex-column justify-content-center align-items-center" *ngIf="!loaded">
+  <div class="container pt-3 vh-100 d-flex flex-column justify-content-center align-items-center" *ngIf="!this.http.loaded">
     <div class="spinner-border text-primary " style="width: 5rem; height: 5rem;" role="status">
     </div>
     <!-- <p class="mt-3">Loading stats for {{nickname}}</p> -->
   </div>
-  <ng-template #content let-modal style="overflow: hidden;">
-    
-    <div class="modal-body" >
-      <p>One fine body&hellip;</p>
-    </div>
-    
-  </ng-template>
 </div>
