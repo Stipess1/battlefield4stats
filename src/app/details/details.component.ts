@@ -639,15 +639,17 @@ export class DetailsComponent implements OnInit {
             for(let i = 0; i < weaponStats.length; i++) {
               let weapon = new Weapon();
               if(weaponStats[i]['category'] != "Special") {
-                weapon.accuracy = weaponStats[i]['accuracy'].toFixed(2)
-                weapon.headshots = weaponStats[i]['headshots'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
-                weapon.kills = weaponStats[i]['kills'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
+                weapon.accuracy = weaponStats[i]['accuracy'].toFixed(2);
+                weapon.headshots = weaponStats[i]['headshots'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                weapon.kills = weaponStats[i]['kills'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 weapon.serviceStar = weaponStats[i]['serviceStars'];
                 weapon.serviceStarProgress = weaponStats[i]['serviceStarsProgress'];
-                weapon.shotsFired = weaponStats[i]['shotsFired'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
-                weapon.shotsHit = weaponStats[i]['shotsHit'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
+                weapon.shotsFired = weaponStats[i]['shotsFired'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                weapon.shotsHit = weaponStats[i]['shotsHit'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 weapon.slug = weaponStats[i]['slug'].toUpperCase();
                 weapon.time = this.secondsToHms(weaponStats[i]['timeEquipped']);
+                if(weapon.time == "")
+                  weapon.time = "0m";
                 this.weapons.push(weapon);
               }
               
