@@ -51,16 +51,36 @@
 .search-input > input {
   background-color: #0e1c2f;
   background-clip: border-box;
-  border: 1px solid #344050;
+  border: 0px solid #344050;
 
   padding-left: 2rem;
+  
   line-height: 1.7;
-  border-radius: 50rem;
+  border-radius: .375rem;
   -webkit-box-shadow: none;
   box-shadow: none;
   transition-duration: 0.3s;
 }
 
+.dropdown-m {
+  max-height: 24rem;
+  overflow: auto;
+  background-color: #0e1c2f;
+  border-radius: .375rem
+}
+.dropdown-i {
+  transition-duration: 0.1s;
+}
+.dropdown-i:hover {
+  background-color: #061325;
+  transition-duration: 0.1s;
+}
+.nickname {
+  font-size: large;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .search-input > input:focus {
   color: #d8e2ef;
   background-color: #0e1c2f;

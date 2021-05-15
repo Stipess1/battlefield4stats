@@ -2,7 +2,7 @@
   background-color: #061325;
   font-family: "Varela Round" !important;
 }
-h1, h2, p, h4  {
+h1, h2, p, h4, h5, h3  {
   color: #d8e2ef;
   font-family: "Varela Round";
 }
@@ -78,4 +78,11 @@ input {
 .close-icon:hover {
   color: grey;
   transition-duration: 0.2s;
+}
+
+.bg-custom {
+  background-color: #0e1c2f;
+  background-clip: border-box;
+  border: 0 solid #061325;
+  border-radius: .375rem;
 }

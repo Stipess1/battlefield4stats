@@ -1,7 +1,7 @@
 import { DataSource } from '@angular/cdk/collections';
 import { leadingComment } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Profile } from '../model/profile';
 import { Weapon } from '../model/weapon';
 import { HttpService } from '../service/http.service';
@@ -31,6 +31,7 @@ export class DetailsComponent implements OnInit {
   public currentPlayingServer: string = "";
   public serverGuid: string = "";
   public date: Date = new Date(1970, 0, 1);
+  public nick: string = "";
   public l_xlarge = {
     "ch-assault-oceanicgreen": "5e1e7e70",
     "ch-assault-urbanairborne": "7618b837",
@@ -246,15 +247,19 @@ export class DetailsComponent implements OnInit {
 
   constructor(public http: HttpService,
     private route: ActivatedRoute,
-    private modal: NgbModal) { }
+    private modal: NgbModal,
+    private router: Router) { }
 
   ngOnInit(): void {   
-    this.http.inHome = false;
+    
     this.id = this.route.snapshot.paramMap.get("id");
     let profile = new Profile();
     this.nickname = this.route.snapshot.paramMap.get("nickname");
     profile.nickname = this.nickname;
-
+    this.http.profiles = [];
+    this.http.loaded = false;
+    console.log(this.http.loading || this.http.profiles.length > 0 || this.http.loaded);
+    
     
     if(typeof this.nickname === 'string') {
       
@@ -281,7 +286,7 @@ export class DetailsComponent implements OnInit {
 
       });
     }
-    // this.loaded = true;
+    // this.http.loaded = true;
     // return;
     this.http.getDetailedStats(this.id).subscribe((data: any) => {
         let kills = data['data']['generalStats']['kills'];
@@ -713,12 +718,24 @@ export class DetailsComponent implements OnInit {
     }
   }
 
+  public player(player: SearchProfile) {
+    this.http.inHome = false;
+    
+    this.router.navigate(["/details", player.id, player.nickname], {relativeTo: this.route});
+  }
+
   public loadServerInfo() {
     
   }
 
   public nickInput(nick: string) {
+    this.nick = nick;
+  }
 
+  public submit() {
+    if(this.nick.length > 0) {
+      this.http.query(this.nick);
+    } 
   }
 
   public openDonateModal(content: any) {

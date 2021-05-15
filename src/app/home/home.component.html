@@ -10,16 +10,16 @@
         <div class="flex-row d-flex input-search">
           <input type="text" #search placeholder="Nickname..." class="shadow" (input)="nickInput(search.value)"
             (keydown.enter)="submit()" >
-            <fa-icon [icon]="close" (click)="this.profiles = []; loaded = false; search.value = ''" class="close-icon" ></fa-icon>
+            <fa-icon [icon]="close" (click)="this.service.profiles = []; this.service.loaded = false; search.value = ''" class="close-icon" ></fa-icon>
         </div>
-        <div class="d-flex mt-2 flex-column dropdown-m shadow pb-2 pt-3 position-absolute" style="top: 215px; z-index: 1000; margin-right: 9px;" *ngIf="loading || this.profiles.length > 0 || loaded">
-          <div class="spinner-border text-primary text-center m-auto" *ngIf="loading" role="status">
+        <div class="d-flex mt-2 flex-column dropdown-m shadow pb-2 pt-3 position-absolute" style="top: 215px; z-index: 1000; margin-right: 9px;" *ngIf="this.service.loading || this.service.profiles.length > 0 || this.service.loadedProfiles">
+          <div class="spinner-border text-primary text-center m-auto" *ngIf="this.service.loading" role="status">
           </div>
-          <div *ngIf="loaded && this.profiles.length == 0">
+          <div *ngIf="this.service.loadedProfiles && this.service.profiles.length == 0">
             <p class="mb-0 text-center">No players found.</p>
           </div>
-          <p style="font-size: large;" class="pl-3" *ngIf="this.profiles.length > 0">Players ({{this.profiles.length}})</p>
-          <div class="dropdown-i d-flex justify-content-start pl-3 pr-3 pb-1 pt-1" *ngFor="let profile of this.profiles"
+          <p style="font-size: large;" class="pl-3" *ngIf="this.service.profiles.length > 0">Players ({{this.service.profiles.length}})</p>
+          <div class="dropdown-i d-flex justify-content-start pl-3 pr-3 pb-1 pt-1" *ngFor="let profile of this.service.profiles"
             style="cursor: pointer;" (click)="player(profile)">
             <img
               src="https://secure.gravatar.com/avatar/{{profile.gravatar}}?s=36&d=https%3A%2F%2Feaassets-a.akamaihd.net%2Fbattlelog%2Fdefaultavatars%2Fdefault-avatar-36.png"
@@ -28,6 +28,14 @@
           </div>
         </div>
       </div>
+      <!-- <div class="row">
+        <div class="col-lg-4">
+          <div class="bg-custom p-4 shadow">
+            <h5>Players in Battlefield</h5>
+            <h3 style="color: #9da9bb;">9,856</h3>
+          </div>
+        </div>
+      </div> -->
       <!-- <div class="about">
         <div class="bg-custom">
           <div class="border-line p-2">
