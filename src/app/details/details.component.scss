@@ -52,9 +52,9 @@
   background-color: #0e1c2f;
   background-clip: border-box;
   border: 0px solid #344050;
-
+  color: #d8e2ef;
   padding-left: 2rem;
-  
+  padding-right: 1.5rem;
   line-height: 1.7;
   border-radius: .375rem;
   -webkit-box-shadow: none;
@@ -165,8 +165,20 @@
 .faSearch {
   position: absolute;
   margin-left: 10px;
-  margin-top: 4px;
+  margin-top: 3px;
   color: #4d5969;
+}
+.faTimes {
+  position: absolute;
+  margin-top: 4px;
+  margin-left: -20px;
+  cursor: pointer;
+  color: #344050;
+  transition-duration: 0.2s;
+}
+.faTimes:hover {
+  color: #4d5969;
+  transition-duration: 0.2s;
 }
 .brand {
   text-decoration: none;

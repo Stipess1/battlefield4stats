@@ -155,7 +155,7 @@ export class HttpService {
       this.loading = false;
 
       if(data['data'].length == 1) {
-        // this.inHome = false;
+        this.inHome = false;
         this.profiles = [];
         this.loaded = false;
         this.router.navigate(["/details", data['data'][0]['personaId'], data['data'][0]['user']['username']], {relativeTo: this.route});

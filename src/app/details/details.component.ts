@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Profile } from '../model/profile';
 import { Weapon } from '../model/weapon';
 import { HttpService } from '../service/http.service';
-import { faDonate, faEnvelope, faHandshake, faSearch, faUserShield } from '@fortawesome/free-solid-svg-icons';
+import { faDonate, faEnvelope, faHandshake, faSearch, faTimes, faUserShield } from '@fortawesome/free-solid-svg-icons';
 import { SearchProfile } from '../model/searchProfile';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -21,6 +21,7 @@ export class DetailsComponent implements OnInit {
   privacy = faUserShield;
   mail = faEnvelope;
   tos = faHandshake;
+  times = faTimes;
   public profile: Profile = new Profile();
   public weapons: Weapon[] = [];
   public weaponsSlice: Weapon[] = [];
@@ -251,7 +252,12 @@ export class DetailsComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {   
-    
+    this.route.params.subscribe(routeParams => {
+      this.loadProfileInfo();
+    })
+  }
+
+  loadProfileInfo() : void {
     this.id = this.route.snapshot.paramMap.get("id");
     let profile = new Profile();
     this.nickname = this.route.snapshot.paramMap.get("nickname");
@@ -260,6 +266,7 @@ export class DetailsComponent implements OnInit {
     this.http.loaded = false;
     console.log(this.http.loading || this.http.profiles.length > 0 || this.http.loaded);
     
+    console.log("da");
     
     if(typeof this.nickname === 'string') {
       
@@ -270,6 +277,7 @@ export class DetailsComponent implements OnInit {
         for(let i = 0; i < data['data'].length; i++) {
           let da = data['data'][i];
           if(da['personaId'] == this.id?.toString()) {
+            this.date = new Date(1970, 0, 1);
             this.date.setSeconds(da['user']['createdAt']);
 
             if(da['user']['presence']['playingMp'] !== undefined) {
@@ -704,8 +712,6 @@ export class DetailsComponent implements OnInit {
 
 
     });
-
-
   }
 
   public showAll() {
