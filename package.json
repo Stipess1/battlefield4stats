@@ -29,6 +29,7 @@
     "animate.css": "^4.1.1",
     "apexcharts": "^3.26.2",
     "bootstrap": "^4.5.0",
+    "ngx-google-analytics": "^11.2.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

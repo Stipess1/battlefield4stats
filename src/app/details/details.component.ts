@@ -264,9 +264,6 @@ export class DetailsComponent implements OnInit {
     profile.nickname = this.nickname;
     this.http.profiles = [];
     this.http.loaded = false;
-    console.log(this.http.loading || this.http.profiles.length > 0 || this.http.loaded);
-    
-    console.log("da");
     
     if(typeof this.nickname === 'string') {
       
@@ -369,7 +366,7 @@ export class DetailsComponent implements OnInit {
 
         let assaultRifleAccuracy = data['data']['generalStats']['assaultRifleAccuracy'];
         //let engineerRifleAccuracy = data['data']['generalStats']['engineerRifleAccuracy'];
-        let supportRifleAccuracy = data['data']['generalStats']['LMGRifleAccuracy'];
+        let supportRifleAccuracy = data['data']['generalStats']['LMGAccuracy'];
         let sniperRifleAccuracy = data['data']['generalStats']['sniperRifleAccuracy'];
 
 
@@ -445,8 +442,8 @@ export class DetailsComponent implements OnInit {
         profile.airSuperiority = airsuperiority.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         profile.defuse = elimination.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-        let roundPlayed = parseInt(roundsWon) + parseInt(roundsLost);
-        profile.roundsPlayed = roundPlayed.toString();
+        let roundFinished = parseInt(roundsWon) + parseInt(roundsLost);
+        profile.roundsFinished = roundFinished.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         let wlRatio = roundsWon / roundsLost;
         profile.wlRatio = wlRatio.toFixed(3).toString();
 
@@ -465,15 +462,16 @@ export class DetailsComponent implements OnInit {
           let picture = undefined;
           let platform = undefined;
 
-          if(data['data']['viewedPersonaInfo'] != null) {
+          if(data['data']['viewedPersonaInfo'] != null && data['data']['viewedPersonaInfo']['picture']) {
             picture = data['data']['viewedPersonaInfo']['picture'];
+            
             // 1 - pc, 32 - ps4, 64 = xbone
             platform = data['data']['viewedPersonaInfo']['platform'];
           } else {
             picture = "//d34ymitoc1pg7m.cloudfront.net/bf4/soldier/xlarge/default-a105f57e.png";
             profile.picture = picture;
           }
-
+          
           let serviceStarProgressAssault = da['serviceStarsProgress']['1'];
           let serviceStarProgressEngineer = da['serviceStarsProgress']['2'];
           let serviceStarProgressSupport = da['serviceStarsProgress']['32'];
@@ -701,7 +699,7 @@ export class DetailsComponent implements OnInit {
             }
             profile.medalsCollected = countMedals.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-            profile.ribbonsPerRound = (count / roundPlayed).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            profile.ribbonsPerRound = (count / roundFinished).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
             this.profile = profile;
             this.http.loaded = true;

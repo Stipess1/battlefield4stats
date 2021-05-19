@@ -63,6 +63,9 @@ export class HomeComponent implements OnInit {
 
   public nickInput(nickname: string) {
     this.nickname = nickname;
+    // if(this.nickname.length > 1) {
+    //   this.submit();
+    // }
   }
 
 }

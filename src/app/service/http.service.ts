@@ -17,6 +17,7 @@ export class HttpService {
   public inHome: boolean = true;
   public loading: boolean = false;
   public loadedProfiles = false;
+  public httpcall: any = null;
 
   constructor(private http: HttpClient, private router: Router,
     private route: ActivatedRoute) {
@@ -145,12 +146,18 @@ export class HttpService {
   // }
 
   // query input 
+  
 
   public query(nickname: string) {
     this.profiles = [];
     this.loading = true;
     this.loadedProfiles = false;
-    this.searchQuery(nickname).subscribe((data: any) => { 
+    
+    if(this.httpcall != null) {
+      this.httpcall.unsubscribe();
+    }
+
+    this.httpcall = this.searchQuery(nickname).subscribe((data: any) => { 
       
       this.loading = false;
 
@@ -166,6 +173,11 @@ export class HttpService {
           profile.id = data['data'][i]['personaId'];
           profile.nickname = data['data'][i]['personaName'];
           profile.gravatar = data['data'][i]['user']['gravatarMd5'];
+          // for(let j = 0; j < data['data'][i]['games']) {
+          //   profile.games.set()
+          // }
+          console.log(data['data'][i]['games']);
+          
           this.profiles.push(profile);
         }
 
