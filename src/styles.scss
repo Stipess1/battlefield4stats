@@ -92,6 +92,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-
 ::-webkit-scrollbar-thumb:hover {
   background: #1a2e4d !important;
 }
+.custom-body .modal-content {
+  background-color: #061325 !important;
+  padding: 12px;
+}
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';

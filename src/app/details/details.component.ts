@@ -264,13 +264,12 @@ export class DetailsComponent implements OnInit {
     profile.nickname = this.nickname;
     this.http.profiles = [];
     this.http.loaded = false;
+    this.http.loadedProfiles = false;
     
     if(typeof this.nickname === 'string') {
       
       this.http.searchQuery(this.nickname).subscribe((data: any) => {
 
-       
-        
         for(let i = 0; i < data['data'].length; i++) {
           let da = data['data'][i];
           if(da['personaId'] == this.id?.toString()) {
@@ -484,7 +483,8 @@ export class DetailsComponent implements OnInit {
           profile.srsProgressReacon = serviceStarProgressRecon;
           profile.srsProgressCommander = serviceStarProgressCommander;
 
-          profile.tag = data['data']['viewedPersonaInfo']['tag'];
+          if(data['data']['viewedPersonaInfo'] != undefined)
+            profile.tag = data['data']['viewedPersonaInfo']['tag'];
 
           let array = Object.entries(this.l_xlarge);
           for(let i = 0; i < array.length; i++) {

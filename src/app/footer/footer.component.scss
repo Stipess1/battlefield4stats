@@ -1,13 +1,56 @@
+
+$backGround-color: #061325;
+$fontColor: #d8e2ef;
+
 .container-fluid {
-    background-color: #061325;
-    font-family: "Varela Round" !important;
+  background-color: $backGround-color;
+  font-family: "Varela Round" !important;
 }
 .foot {
-    text-decoration: none;
-    transition-duration: 0.2s;
-    font-size: smaller;
-  }
-  .foot:hover {
-    transition-duration: 0.2s;
-    color: #d8e2ef !important;
-  }
+  text-decoration: none;
+  transition-duration: 0.2s;
+  font-size: smaller;
+}
+.foot:hover {
+  transition-duration: 0.2s;
+  color: #d8e2ef !important;
+}
+h3 {
+  font-family: "Varela Round" !important;
+  color: $fontColor;
+}
+p {
+  color: #9da9bb;
+  font-family: "Varela Round" !important;
+  transition-duration: 0.3s;
+  user-select: none;
+}
+
+.button {
+  background-color: #050e1b;
+  border-radius: .375rem;
+  transition-duration: 0.3s;
+}
+
+.button:hover {
+  transition-duration: 0.3s;
+  background-color: #9da9bb;
+  cursor: pointer;
+  color: #061325;
+}
+
+.button:hover p, .button:hover svg {
+  color: #061325;
+  transition-duration: 0.3s;
+}
+.button svg {
+  color: #9da9bb;
+  transition-duration: 0.3s;
+}
+a {
+  text-decoration: none;
+  border: 0;
+  outline: none;
+  user-select: none;
+}
+

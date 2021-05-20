@@ -170,17 +170,26 @@ export class HttpService {
         
         for (let i = 0; i < data['data'].length; i++) {
           let profile = new SearchProfile();
-          profile.id = data['data'][i]['personaId'];
-          profile.nickname = data['data'][i]['personaName'];
-          profile.gravatar = data['data'][i]['user']['gravatarMd5'];
-          // for(let j = 0; j < data['data'][i]['games']) {
-          //   profile.games.set()
-          // }
-          console.log(data['data'][i]['games']);
+          let da = data['data'][i];
+          profile.id = da['personaId'];
+          profile.nickname = da['personaName'];
+          profile.gravatar = da['user']['gravatarMd5'];
+          if(da['games']['1'] != undefined && da['games']['1'] != "0") {
+            profile.platformImg = "../../assets/icons/pc.png";
+          } else if(da['games']['2'] != undefined && da['games']['2'] != "0" ) {
+            profile.platformImg = "../../assets/icons/xbox360.png";
+          } else if(da['games']['4'] != undefined && da['games']['4'] != "0") {
+            profile.platformImg = "../../assets/icons/ps3.png";
+          } else if(da['games']['32'] != undefined && da['games']['32'] != "0" ) {
+            profile.platformImg = "../../assets/icons/ps4.png";
+          } else if(da['games']['64'] != undefined && da['games']['64'] != "0") {
+            profile.platformImg = "../../assets/icons/xboxone.png";
+          }
           
           this.profiles.push(profile);
         }
 
+        this.loadedProfiles = true;
         this.loaded = true;
       }
 
