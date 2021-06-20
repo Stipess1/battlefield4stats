@@ -111,17 +111,6 @@ export class HttpService {
     }
   }
 
-  // public playerCount() {
-  //   return this.http.get('https://api.gametools.network/bf4/status/');
-  // }
-
-  // public playerCountDays(days: number) {
-  //   return this.http.get('https://api.gametools.network/bf4/statusarray/?days='+days+'&region=ALL');
-  // }
-
-  // query input 
-  
-
   public query(nickname: string) {
     this.profiles = [];
     this.loading = true;
