@@ -21,12 +21,13 @@ export class HttpService {
 
   constructor(private http: HttpClient, private router: Router,
     private route: ActivatedRoute) {
+    
     if(environment.production) {
-      this.url = "http://api.youplayandroid.com/api";
+      this.url = "https://bf4stats.herokuapp.com";
     } else {
-      this.url = "http://localhost:4200/api"
+      this.url = "http://localhost:4200/api";
     }
-
+    
    }
 
 
@@ -36,13 +37,7 @@ export class HttpService {
       formData.append("query", nickname);
       return this.http.post(this.url+"/search/query/", formData);
     } else {
-      return this.http.get(this.url+"/query", {
-        params: {
-          query: nickname
-        },
-        responseType: 'json'
-
-      });
+      return this.http.get(this.url+"/query/"+nickname);
     }
   }
 
@@ -55,12 +50,7 @@ export class HttpService {
         responseType: 'json'
       });
     } else {
-      return this.http.get(this.url+"/details", {
-        params: {
-          id: id
-        },
-        responseType: 'json'
-      }); 
+      return this.http.get(this.url+"/details/"+id); 
     }
     
   }
@@ -74,12 +64,7 @@ export class HttpService {
         responseType: 'json'
       });
     } else {
-      return this.http.get(this.url+"/detailedstats", {
-        params: {
-          id: id
-        },
-        responseType: 'json'
-      });
+      return this.http.get(this.url+"/detailedstats/"+id);
     }
   }
 
@@ -92,12 +77,7 @@ export class HttpService {
         responseType: 'json'
       });
     } else {
-      return this.http.get(this.url+"/detailaward", {
-        params: {
-          id: id
-        },
-        responseType: 'json'
-      });
+      return this.http.get(this.url+"/detailaward/"+id)
     }
   }
 
@@ -110,12 +90,7 @@ export class HttpService {
         responseType: 'json'
       });
     } else {
-      return this.http.get(this.url+"/weapons", {
-        params: {
-          id: id
-        },
-        responseType: 'json'
-      });
+      return this.http.get(this.url+"/weapons/"+id);
     }
   }
 
@@ -128,12 +103,7 @@ export class HttpService {
         responseType: 'json'
       });
     } else {
-      return this.http.get(this.url+"/serverinfo", {
-        params: {
-          guid: guid
-        },
-        responseType: 'json'
-      });
+      return this.http.get(this.url+"/serverinfo/"+guid);
     }
   }
 
