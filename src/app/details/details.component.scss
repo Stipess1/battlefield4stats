@@ -66,7 +66,11 @@
   max-height: 24rem;
   overflow: auto;
   background-color: #0e1c2f;
-  border-radius: .375rem
+  border-radius: .375rem;
+  top: 112px; 
+  z-index: 1000; 
+  margin-right: 9px; 
+  width: 254px;
 }
 .dropdown-i {
   transition-duration: 0.1s;
@@ -188,5 +192,39 @@ li {
 }
 .nick-link {
   text-decoration-color: #4d5969;
+}
+.rank-img {
+  width: 128px;
+}
+
+@media only screen and(max-width: 767px) {
+  
+  .rank-img {
+    width: 64px;
+  }
+
+  .rank-points, .rank-up-points-left, .next-rank-points, .current-rank-name, .rank-up-name {
+    font-size: smaller;
+  }
+}
+
+@media only screen and(max-width: 455px) {
+  
+
+  .rank-points, .rank-up-points-left, .next-rank-points, .current-rank-name, .rank-up-name {
+    font-size: x-small;
+  }
+
+  .body {
+    font-size: medium !important;
+  }
+}
+@media only screen and(max-width: 489px) {
+  .nav-list{ 
+    flex-direction: column;
+  }
+  .dropdown-m {
+    top: 135px;
+  }
 }
 // #132238 light #2c7be5;
