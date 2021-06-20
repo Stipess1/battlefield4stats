@@ -1,13 +1,12 @@
-import { DataSource } from '@angular/cdk/collections';
-import { leadingComment } from '@angular/compiler';
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Profile } from '../model/profile';
 import { Weapon } from '../model/weapon';
 import { HttpService } from '../service/http.service';
 import { faDonate, faEnvelope, faHandshake, faSearch, faTimes, faUserShield } from '@fortawesome/free-solid-svg-icons';
-import { SearchProfile } from '../model/searchProfile';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { SearchProfile } from '../model/searchProfile';
 
 @Component({
   selector: 'app-details',
@@ -33,6 +32,7 @@ export class DetailsComponent implements OnInit {
   public serverGuid: string = "";
   public date: Date = new Date(1970, 0, 1);
   public nick: string = "";
+  public platform : string | null = "";
   public l_xlarge = {
     "ch-assault-oceanicgreen": "5e1e7e70",
     "ch-assault-urbanairborne": "7618b837",
@@ -260,9 +260,15 @@ export class DetailsComponent implements OnInit {
   loadProfileInfo() : void {
     this.id = this.route.snapshot.paramMap.get("id");
     let profile = new Profile();
+
     this.nickname = this.route.snapshot.paramMap.get("nickname");
     profile.nickname = this.nickname;
+
+    this.platform = this.route.snapshot.paramMap.get("platform");
+
     this.http.profiles = [];
+    this.weapons = [];
+    this.weaponsSlice = [];
     this.http.loaded = false;
     this.http.loadedProfiles = false;
     
@@ -292,7 +298,7 @@ export class DetailsComponent implements OnInit {
     }
     // this.http.loaded = true;
     // return;
-    this.http.getDetailedStats(this.id).subscribe((data: any) => {
+    this.http.getDetailedStats(this.id, this.platform).subscribe((data: any) => {
         let kills = data['data']['generalStats']['kills'];
         let kdRatio = data['data']['generalStats']['kdRatio'];
         let accuracy = data['data']['generalStats']['accuracy'];
@@ -455,7 +461,7 @@ export class DetailsComponent implements OnInit {
         let killHit = (parseInt(kills) / parseInt(shotsHit)) * 100;
         profile.killHitPercentage = killHit.toFixed(2);
 
-        this.http.getDetails(this.id).subscribe((data: any) => {
+        this.http.getDetails(this.id, this.platform).subscribe((data: any) => {
           let da = data['data']['overviewStats'];
 
           let picture = undefined;
@@ -645,7 +651,7 @@ export class DetailsComponent implements OnInit {
           let currentRibbons = da['gameProgress'][3]['current'];
           profile.ribbonsUnlocked = currentRibbons;
 
-          this.http.getWeapons(this.id).subscribe((weapons: any) => {
+          this.http.getWeapons(this.id, this.platform).subscribe((weapons: any) => {
             let weaponStats = weapons['data']['mainWeaponStats'];
             for(let i = 0; i < weaponStats.length; i++) {
               let weapon = new Weapon();
@@ -669,7 +675,7 @@ export class DetailsComponent implements OnInit {
             this.weaponsSlice = this.weapons.slice(0, 10);
           });
 
-          this.http.getAwards(this.id).subscribe((award:any) => {
+          this.http.getAwards(this.id, this.platform).subscribe((award:any) => {
 
 
             let da = award['data']['ribbonAwardByCode'];
@@ -725,7 +731,7 @@ export class DetailsComponent implements OnInit {
   public player(player: SearchProfile) {
     this.http.inHome = false;
     
-    this.router.navigate(["/details", player.id, player.nickname], {relativeTo: this.route});
+    this.router.navigate(["/details", player.id, player.nickname, player.platform], {relativeTo: this.route});
   }
 
   public loadServerInfo() {

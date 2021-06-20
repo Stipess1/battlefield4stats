@@ -58,7 +58,7 @@ export class HomeComponent implements OnInit {
     this.service.inHome = false;
     this.service.profiles = [];
     this.service.loaded = false;
-    this.router.navigate(["/details", player.id, player.nickname], {relativeTo: this.route});
+    this.router.navigate(["/details", player.id, player.nickname, player.platform], {relativeTo: this.route});
   }
 
   public nickInput(nickname: string) {

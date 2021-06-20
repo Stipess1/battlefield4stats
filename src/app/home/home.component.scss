@@ -46,14 +46,13 @@ input[type="search"]::-webkit-search-results-decoration {
   max-height: 24rem;
   overflow: auto;
   background-color: #0e1c2f;
-  border-radius: .375rem
-}
-
-.input-search{
-  width: 431px;
+  border-radius: .375rem;
+  top: 215px; 
+  z-index: 1000; 
+  margin-right: 9px;
 }
 .dropdown-m {
-  width: 420px;
+  width: 433px;
 }
 .dropdown-i {
   transition-duration: 0.1s;
@@ -91,4 +90,24 @@ input[type="search"]::-webkit-search-results-decoration {
   background-clip: border-box;
   border: 0 solid #061325;
   border-radius: .375rem;
+}
+
+@media only screen and (max-width: 505px) {
+  
+  input {
+    max-width: 250px;
+  }
+
+  .dropdown-m {
+    width: 250px;
+    top: 239px;
+  }
+  
+}
+
+@media only screen and (max-width: 493px){
+  
+  .dropdown-m {
+    top: 288px;
+  }
 }

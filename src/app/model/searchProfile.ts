@@ -3,4 +3,5 @@ export class SearchProfile {
     gravatar: string = "";
     id: string = "";
     platformImg: string = "";
+    platform: string = "";
 }

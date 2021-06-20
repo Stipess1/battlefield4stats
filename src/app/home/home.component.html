@@ -4,15 +4,15 @@
 
       <div class="d-flex align-items-center flex-column pt-5 mb-5">
         <div class="mb-5">
-          <h1 >BATTLEFIELD 4 STATS</h1>
-          <p class=" mb-0">Track the stats and rankings for any player on Battlefield 4.</p>
+          <h1 class="text-center">BATTLEFIELD 4 STATS</h1>
+          <p class="mb-0 text-center">Track the stats and rankings for any player on Battlefield 4.</p>
         </div>
-        <div class="flex-row d-flex input-search">
+        <div class="d-flex input-search justify-content-center">
           <input type="search" #search placeholder="Nickname..." class="shadow" (input)="nickInput(search.value)"
             (keydown.enter)="submit()" >
             <fa-icon [icon]="close" (click)="this.service.profiles = []; this.service.loadedProfiles = false; search.value = ''" class="close-icon" ></fa-icon>
         </div>
-        <div class="d-flex mt-2 flex-column dropdown-m shadow pb-2 pt-3 position-absolute" style="top: 215px; z-index: 1000; margin-right: 9px;" *ngIf="this.service.loading || this.service.profiles.length > 0 || this.service.loadedProfiles">
+        <div class="d-flex mt-2 flex-column dropdown-m shadow pb-2 pt-3 position-absolute" *ngIf="this.service.loading || this.service.profiles.length > 0 || this.service.loadedProfiles">
           <div class="spinner-border text-primary text-center m-auto" *ngIf="this.service.loading" role="status">
           </div>
           <div *ngIf="this.service.loadedProfiles && this.service.profiles.length == 0">

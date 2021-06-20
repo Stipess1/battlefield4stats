@@ -41,56 +41,60 @@ export class HttpService {
     }
   }
 
-  public getDetails(id: any) {
+  public getDetails(id: any, platform: any) {
     if(!environment.production) {
-      return this.http.get(this.url+"/warsawoverviewpopulate/"+id+"/1", {
+      return this.http.get(this.url+"/warsawoverviewpopulate/"+id+"/"+platform, {
         params: {
-          id: id
+          id: id,
+          platform: platform
         },
         responseType: 'json'
       });
     } else {
-      return this.http.get(this.url+"/details/"+id); 
+      return this.http.get(this.url+"/details/"+id+"/"+platform); 
     }
     
   }
 
-  public getDetailedStats(id: any) {
+  public getDetailedStats(id: any, platform: any) {
     if(!environment.production) {
-      return this.http.get(this.url+"/warsawdetailedstatspopulate/"+id+"/1", {
+      return this.http.get(this.url+"/warsawdetailedstatspopulate/"+id+"/"+platform, {
         params: {
-          id: id
+          id: id,
+          platform: platform
         },
         responseType: 'json'
       });
     } else {
-      return this.http.get(this.url+"/detailedstats/"+id);
+      return this.http.get(this.url+"/detailedstats/"+id+"/"+platform);
     }
   }
 
-  public getAwards(id: any) {
+  public getAwards(id: any, platform: any) {
     if(!environment.production) {
-      return this.http.get(this.url+"/warsawawardspopulate/"+id+"/1", {
+      return this.http.get(this.url+"/warsawawardspopulate/"+id+"/"+platform, {
         params: {
-          id: id
+          id: id,
+          platform: platform
         },
         responseType: 'json'
       });
     } else {
-      return this.http.get(this.url+"/detailaward/"+id)
+      return this.http.get(this.url+"/detailaward/"+id+"/"+platform)
     }
   }
 
-  public getWeapons(id: any) {
+  public getWeapons(id: any, platform: any) {
     if(!environment.production) {
-      return this.http.get(this.url+"/warsawWeaponsPopulateStats/"+id+"/1/stats", {
+      return this.http.get(this.url+"/warsawWeaponsPopulateStats/"+id+"/"+platform+"/stats", {
         params: {
-          id: id
+          id: id,
+          platform: platform
         },
         responseType: 'json'
       });
     } else {
-      return this.http.get(this.url+"/weapons/"+id);
+      return this.http.get(this.url+"/weapons/"+id+"/"+platform);
     }
   }
 
@@ -131,11 +135,36 @@ export class HttpService {
       
       this.loading = false;
 
+      
+
       if(data['data'].length == 1) {
+
+        let profile;
+        for (let i = 0; i < data['data'].length; i++) {
+          let da = data['data'][i];
+          profile = new SearchProfile();
+          if(da['games']['1'] != undefined && da['games']['1'] != "0") {
+            profile.platformImg = "../../assets/icons/pc.png";
+            profile.platform = "1";
+          } else if(da['games']['2'] != undefined && da['games']['2'] != "0" ) {
+            profile.platformImg = "../../assets/icons/xbox360.png";
+            profile.platform = "2";
+          } else if(da['games']['4'] != undefined && da['games']['4'] != "0") {
+            profile.platformImg = "../../assets/icons/ps3.png";
+            profile.platform = "4";
+          } else if(da['games']['32'] != undefined && da['games']['32'] != "0" ) {
+            profile.platformImg = "../../assets/icons/ps4.png";
+            profile.platform = "32";
+          } else if(da['games']['64'] != undefined && da['games']['64'] != "0") {
+            profile.platformImg = "../../assets/icons/xboxone.png";
+            profile.platform = "64";
+          }
+        }
+
         this.inHome = false;
         this.profiles = [];
         this.loaded = false;
-        this.router.navigate(["/details", data['data'][0]['personaId'], data['data'][0]['user']['username']], {relativeTo: this.route});
+        this.router.navigate(["/details", data['data'][0]['personaId'], data['data'][0]['user']['username'], profile?.platform], {relativeTo: this.route});
       } else {
         
         for (let i = 0; i < data['data'].length; i++) {
@@ -146,14 +175,19 @@ export class HttpService {
           profile.gravatar = da['user']['gravatarMd5'];
           if(da['games']['1'] != undefined && da['games']['1'] != "0") {
             profile.platformImg = "../../assets/icons/pc.png";
+            profile.platform = "1";
           } else if(da['games']['2'] != undefined && da['games']['2'] != "0" ) {
             profile.platformImg = "../../assets/icons/xbox360.png";
+            profile.platform = "2";
           } else if(da['games']['4'] != undefined && da['games']['4'] != "0") {
             profile.platformImg = "../../assets/icons/ps3.png";
+            profile.platform = "4";
           } else if(da['games']['32'] != undefined && da['games']['32'] != "0" ) {
             profile.platformImg = "../../assets/icons/ps4.png";
+            profile.platform = "32";
           } else if(da['games']['64'] != undefined && da['games']['64'] != "0") {
             profile.platformImg = "../../assets/icons/xboxone.png";
+            profile.platform = "64";
           }
           
           this.profiles.push(profile);

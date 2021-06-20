@@ -9,7 +9,7 @@ import { TosComponent } from './tos/tos.component';
 const routes: Routes = [
 
   {
-    path: 'details/:id/:nickname', component: DetailsComponent
+    path: 'details/:id/:nickname/:platform', component: DetailsComponent
   },
   {
     path: '', component: HomeComponent
