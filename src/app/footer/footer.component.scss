@@ -54,6 +54,19 @@ a {
   user-select: none;
 }
 
-@media only screen and (max-width: 537px) {
-  
+.svg-icon {
+  zoom: 7;
+}
+
+@media only screen and (max-width: 768px) {
+  .svg-icon {
+    zoom: 6;
+  }
+}
+
+
+@media only screen and (max-width: 576px) {
+  .svg-icon {
+    zoom: 5;
+  }
 }
