@@ -218,6 +218,9 @@ li {
   .body {
     font-size: medium !important;
   }
+  .lead-font {
+    font-size: 25px;
+  }
 }
 @media only screen and(max-width: 489px) {
   .nav-list{ 
@@ -225,6 +228,12 @@ li {
   }
   .dropdown-m {
     top: 135px;
+  }
+}
+
+@media only screen and(max-width: 402px) {
+  .lead-font {
+    font-size: 22px;
   }
 }
 // #132238 light #2c7be5;
