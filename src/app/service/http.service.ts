@@ -18,6 +18,7 @@ export class HttpService {
   public loading: boolean = false;
   public loadedProfiles = false;
   public httpcall: any = null;
+  public ads: boolean = false;
 
   constructor(private http: HttpClient, private router: Router,
     private route: ActivatedRoute) {

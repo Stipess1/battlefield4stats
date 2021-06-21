@@ -13,6 +13,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TosComponent } from './tos/tos.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { FooterComponent } from './footer/footer.component';
+import { NgxGoogleAnalyticsModule } from 'ngx-google-analytics';
+import { AdsenseModule } from 'ng2-adsense';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,11 @@ import { FooterComponent } from './footer/footer.component';
     HttpClientModule,
     MaterialModule,
     BrowserAnimationsModule,
+    NgxGoogleAnalyticsModule.forRoot('G-DJ25LBK0ZQ'),
+    AdsenseModule.forRoot({
+      adClient: 'ca-pub-8163593086331416',
+      adSlot: 3318057938
+    }),
     FontAwesomeModule
   ],
   providers: [],

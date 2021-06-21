@@ -26,6 +26,14 @@
               Game materials copyright Electronic Arts Inc. Electronic Arts has not endorsed and is not responsible for this
               site or its content.
             </p>
+
+            <div class="row" *ngIf="this.service.ads">
+              <div class="col-12">
+                <ng-adsense 
+                [display]="'flex'"
+              ></ng-adsense>
+              </div>
+            </div>
           </div>
     </div>
 </div>
