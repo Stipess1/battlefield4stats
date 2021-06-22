@@ -656,7 +656,7 @@ export class DetailsComponent implements OnInit {
             for(let i = 0; i < weaponStats.length; i++) {
               let weapon = new Weapon();
               if(weaponStats[i]['category'] != "Special") {
-                weapon.accuracy = weaponStats[i]['accuracy'].toFixed(2);
+                weapon.accuracy = (weaponStats[i]['accuracy'] * 100).toFixed(2);
                 weapon.headshots = weaponStats[i]['headshots'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 weapon.kills = weaponStats[i]['kills'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 weapon.serviceStar = weaponStats[i]['serviceStars'];
