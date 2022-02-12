@@ -7,6 +7,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
+    "deploy": "ng build --prod --output-path docs --base-href=https://battlefield4stats.com/",
     "e2e": "ng e2e"
   },
   "private": true,
@@ -31,6 +32,7 @@
     "bootstrap": "^4.5.0",
     "ng2-adsense": "^10.0.0",
     "ngx-google-analytics": "^11.2.1",
+    "prism": "^4.1.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

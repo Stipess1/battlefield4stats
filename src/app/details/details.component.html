@@ -5,8 +5,10 @@
       <ng-template #tipEnlisted>{{this.date}}</ng-template>
       <ng-template #goto>Go to Battlelog profile</ng-template>
       <div class="menu d-flex align-items-center ">
-        <ul class="mb-0 d-flex nav-list">
-          <li class="d-flex" style="align-items: center;"><img src="{{profile.rankSmallImg}}" width="40" alt=""><a [ngbTooltip]="goto" class="nick-link"
+        <ul class="mb-0 d-flex nav-list d-flex">
+          <li class="position-relative d-lg-block d-none d-md-block"><p class="mb-0 invisible">h</p><div width="40" alt="" class="rank small position-absolute r{{profile.rank}}" style="top: -18px;
+            left: -47px;"></div></li>
+          <li class="d-flex" style="align-items: center;"><a [ngbTooltip]="goto" class="nick-link"
               href="https://battlelog.battlefield.com/bf4/soldier/{{this.nickname}}/stats/{{this.id}}/{{this.platform}}/"
               target="_blank">
               <p class="mb-0"><span *ngIf="profile.tag != ''">[{{profile.tag}}]</span> {{this.nickname}}</p>
@@ -236,7 +238,7 @@
           <div class="bg-custom-right-desc ">
             <div class="p-3 d-flex align-self-center">
               <div class="d-flex flex-column">
-                <img class="rank-img" src="{{profile.rankImg}}" alt="">
+                <div class="rank-img rank r{{profile.rank}} medium d-lg-block d-none d-md-block"  alt=""></div>
                 <p class="mb-0 text-center current-rank-name">{{profile.currentRankName}}</p>
               </div>
 
@@ -257,7 +259,7 @@
                 </div>
               </div>
               <div *ngIf="profile.rank != 140">
-                <img class="rank-img" src="{{profile.rankUpImg}}" alt="">
+                <div class="rank-img rank r{{parse(profile.rank)+1}} medium d-lg-block d-none d-md-block" alt=""></div>
                 <p class="mb-0 text-center rank-up-name">{{profile.rankUpName}}</p>
               </div>
 

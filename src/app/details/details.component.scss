@@ -210,7 +210,6 @@ li {
 
 @media only screen and(max-width: 455px) {
   
-
   .rank-points, .rank-up-points-left, .next-rank-points, .current-rank-name, .rank-up-name {
     font-size: x-small;
   }
@@ -237,3 +236,588 @@ li {
   }
 }
 // #132238 light #2c7be5;
+.rank {
+  display: inline-block; }
+  .rank.small {
+    background-image: url("https://cdn.battlelog.com/bl-cdn/cdnprefix/1715536/public/profile/warsaw/gamedata/rank/small.png");
+    width: 64px;
+    height: 64px;
+    background-size: 768px 768px; }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+      .rank.small {
+        background-image: url("https://cdn.battlelog.com/bl-cdn/cdnprefix/1715536/public/profile/warsaw/gamedata/rank/small@2x.png"); } }
+    .rank.small.r0 {
+      background-position: 0 0; }
+    .rank.small.r1 {
+      background-position: -64px 0; }
+    .rank.small.r10 {
+      background-position: -128px 0; }
+    .rank.small.r100 {
+      background-position: -192px 0; }
+    .rank.small.r101 {
+      background-position: -256px 0; }
+    .rank.small.r102 {
+      background-position: -320px 0; }
+    .rank.small.r103 {
+      background-position: -384px 0; }
+    .rank.small.r104 {
+      background-position: -448px 0; }
+    .rank.small.r105 {
+      background-position: -512px 0; }
+    .rank.small.r106 {
+      background-position: -576px 0; }
+    .rank.small.r107 {
+      background-position: -640px 0; }
+    .rank.small.r108 {
+      background-position: -704px 0; }
+    .rank.small.r109 {
+      background-position: 0 -64px; }
+    .rank.small.r11 {
+      background-position: -64px -64px; }
+    .rank.small.r110 {
+      background-position: -128px -64px; }
+    .rank.small.r111 {
+      background-position: -192px -64px; }
+    .rank.small.r112 {
+      background-position: -256px -64px; }
+    .rank.small.r113 {
+      background-position: -320px -64px; }
+    .rank.small.r114 {
+      background-position: -384px -64px; }
+    .rank.small.r115 {
+      background-position: -448px -64px; }
+    .rank.small.r116 {
+      background-position: -512px -64px; }
+    .rank.small.r117 {
+      background-position: -576px -64px; }
+    .rank.small.r118 {
+      background-position: -640px -64px; }
+    .rank.small.r119 {
+      background-position: -704px -64px; }
+    .rank.small.r12 {
+      background-position: 0 -128px; }
+    .rank.small.r120 {
+      background-position: -64px -128px; }
+    .rank.small.r121 {
+      background-position: -128px -128px; }
+    .rank.small.r122 {
+      background-position: -192px -128px; }
+    .rank.small.r123 {
+      background-position: -256px -128px; }
+    .rank.small.r124 {
+      background-position: -320px -128px; }
+    .rank.small.r125 {
+      background-position: -384px -128px; }
+    .rank.small.r126 {
+      background-position: -448px -128px; }
+    .rank.small.r127 {
+      background-position: -512px -128px; }
+    .rank.small.r128 {
+      background-position: -576px -128px; }
+    .rank.small.r129 {
+      background-position: -640px -128px; }
+    .rank.small.r13 {
+      background-position: -704px -128px; }
+    .rank.small.r130 {
+      background-position: 0 -192px; }
+    .rank.small.r131 {
+      background-position: -64px -192px; }
+    .rank.small.r132 {
+      background-position: -128px -192px; }
+    .rank.small.r133 {
+      background-position: -192px -192px; }
+    .rank.small.r134 {
+      background-position: -256px -192px; }
+    .rank.small.r135 {
+      background-position: -320px -192px; }
+    .rank.small.r136 {
+      background-position: -384px -192px; }
+    .rank.small.r137 {
+      background-position: -448px -192px; }
+    .rank.small.r138 {
+      background-position: -512px -192px; }
+    .rank.small.r139 {
+      background-position: -576px -192px; }
+    .rank.small.r14 {
+      background-position: -640px -192px; }
+    .rank.small.r140 {
+      background-position: -704px -192px; }
+    .rank.small.r15 {
+      background-position: 0 -256px; }
+    .rank.small.r16 {
+      background-position: -64px -256px; }
+    .rank.small.r17 {
+      background-position: -128px -256px; }
+    .rank.small.r18 {
+      background-position: -192px -256px; }
+    .rank.small.r19 {
+      background-position: -256px -256px; }
+    .rank.small.r2 {
+      background-position: -320px -256px; }
+    .rank.small.r20 {
+      background-position: -384px -256px; }
+    .rank.small.r21 {
+      background-position: -448px -256px; }
+    .rank.small.r22 {
+      background-position: -512px -256px; }
+    .rank.small.r23 {
+      background-position: -576px -256px; }
+    .rank.small.r24 {
+      background-position: -640px -256px; }
+    .rank.small.r25 {
+      background-position: -704px -256px; }
+    .rank.small.r26 {
+      background-position: 0 -320px; }
+    .rank.small.r27 {
+      background-position: -64px -320px; }
+    .rank.small.r28 {
+      background-position: -128px -320px; }
+    .rank.small.r29 {
+      background-position: -192px -320px; }
+    .rank.small.r3 {
+      background-position: -256px -320px; }
+    .rank.small.r30 {
+      background-position: -320px -320px; }
+    .rank.small.r31 {
+      background-position: -384px -320px; }
+    .rank.small.r32 {
+      background-position: -448px -320px; }
+    .rank.small.r33 {
+      background-position: -512px -320px; }
+    .rank.small.r34 {
+      background-position: -576px -320px; }
+    .rank.small.r35 {
+      background-position: -640px -320px; }
+    .rank.small.r36 {
+      background-position: -704px -320px; }
+    .rank.small.r37 {
+      background-position: 0 -384px; }
+    .rank.small.r38 {
+      background-position: -64px -384px; }
+    .rank.small.r39 {
+      background-position: -128px -384px; }
+    .rank.small.r4 {
+      background-position: -192px -384px; }
+    .rank.small.r40 {
+      background-position: -256px -384px; }
+    .rank.small.r41 {
+      background-position: -320px -384px; }
+    .rank.small.r42 {
+      background-position: -384px -384px; }
+    .rank.small.r43 {
+      background-position: -448px -384px; }
+    .rank.small.r44 {
+      background-position: -512px -384px; }
+    .rank.small.r45 {
+      background-position: -576px -384px; }
+    .rank.small.r46 {
+      background-position: -640px -384px; }
+    .rank.small.r47 {
+      background-position: -704px -384px; }
+    .rank.small.r48 {
+      background-position: 0 -448px; }
+    .rank.small.r49 {
+      background-position: -64px -448px; }
+    .rank.small.r5 {
+      background-position: -128px -448px; }
+    .rank.small.r50 {
+      background-position: -192px -448px; }
+    .rank.small.r51 {
+      background-position: -256px -448px; }
+    .rank.small.r52 {
+      background-position: -320px -448px; }
+    .rank.small.r53 {
+      background-position: -384px -448px; }
+    .rank.small.r54 {
+      background-position: -448px -448px; }
+    .rank.small.r55 {
+      background-position: -512px -448px; }
+    .rank.small.r56 {
+      background-position: -576px -448px; }
+    .rank.small.r57 {
+      background-position: -640px -448px; }
+    .rank.small.r58 {
+      background-position: -704px -448px; }
+    .rank.small.r59 {
+      background-position: 0 -512px; }
+    .rank.small.r6 {
+      background-position: -64px -512px; }
+    .rank.small.r60 {
+      background-position: -128px -512px; }
+    .rank.small.r61 {
+      background-position: -192px -512px; }
+    .rank.small.r62 {
+      background-position: -256px -512px; }
+    .rank.small.r63 {
+      background-position: -320px -512px; }
+    .rank.small.r64 {
+      background-position: -384px -512px; }
+    .rank.small.r65 {
+      background-position: -448px -512px; }
+    .rank.small.r66 {
+      background-position: -512px -512px; }
+    .rank.small.r67 {
+      background-position: -576px -512px; }
+    .rank.small.r68 {
+      background-position: -640px -512px; }
+    .rank.small.r69 {
+      background-position: -704px -512px; }
+    .rank.small.r7 {
+      background-position: 0 -576px; }
+    .rank.small.r70 {
+      background-position: -64px -576px; }
+    .rank.small.r71 {
+      background-position: -128px -576px; }
+    .rank.small.r72 {
+      background-position: -192px -576px; }
+    .rank.small.r73 {
+      background-position: -256px -576px; }
+    .rank.small.r74 {
+      background-position: -320px -576px; }
+    .rank.small.r75 {
+      background-position: -384px -576px; }
+    .rank.small.r76 {
+      background-position: -448px -576px; }
+    .rank.small.r77 {
+      background-position: -512px -576px; }
+    .rank.small.r78 {
+      background-position: -576px -576px; }
+    .rank.small.r79 {
+      background-position: -640px -576px; }
+    .rank.small.r8 {
+      background-position: -704px -576px; }
+    .rank.small.r80 {
+      background-position: 0 -640px; }
+    .rank.small.r81 {
+      background-position: -64px -640px; }
+    .rank.small.r82 {
+      background-position: -128px -640px; }
+    .rank.small.r83 {
+      background-position: -192px -640px; }
+    .rank.small.r84 {
+      background-position: -256px -640px; }
+    .rank.small.r85 {
+      background-position: -320px -640px; }
+    .rank.small.r86 {
+      background-position: -384px -640px; }
+    .rank.small.r87 {
+      background-position: -448px -640px; }
+    .rank.small.r88 {
+      background-position: -512px -640px; }
+    .rank.small.r89 {
+      background-position: -576px -640px; }
+    .rank.small.r9 {
+      background-position: -640px -640px; }
+    .rank.small.r90 {
+      background-position: -704px -640px; }
+    .rank.small.r91 {
+      background-position: 0 -704px; }
+    .rank.small.r92 {
+      background-position: -64px -704px; }
+    .rank.small.r93 {
+      background-position: -128px -704px; }
+    .rank.small.r94 {
+      background-position: -192px -704px; }
+    .rank.small.r95 {
+      background-position: -256px -704px; }
+    .rank.small.r96 {
+      background-position: -320px -704px; }
+    .rank.small.r97 {
+      background-position: -384px -704px; }
+    .rank.small.r98 {
+      background-position: -448px -704px; }
+    .rank.small.r99 {
+      background-position: -512px -704px; }
+
+      .rank {
+        display: inline-block; }
+        .rank.medium {
+          background-image: url("https://cdn.battlelog.com/bl-cdn/cdnprefix/1715536/public/profile/warsaw/gamedata/rank/medium.png");
+          width: 128px;
+          height: 128px;
+          background-size: 1536px 1536px; }
+          @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+            .rank.medium {
+              background-image: url("https://cdn.battlelog.com/bl-cdn/cdnprefix/1715536/public/profile/warsaw/gamedata/rank/medium@2x.png"); } }
+          .rank.medium.r0 {
+            background-position: 0 0; }
+          .rank.medium.r1 {
+            background-position: -128px 0; }
+          .rank.medium.r10 {
+            background-position: -256px 0; }
+          .rank.medium.r100 {
+            background-position: -384px 0; }
+          .rank.medium.r101 {
+            background-position: -512px 0; }
+          .rank.medium.r102 {
+            background-position: -640px 0; }
+          .rank.medium.r103 {
+            background-position: -768px 0; }
+          .rank.medium.r104 {
+            background-position: -896px 0; }
+          .rank.medium.r105 {
+            background-position: -1024px 0; }
+          .rank.medium.r106 {
+            background-position: -1152px 0; }
+          .rank.medium.r107 {
+            background-position: -1280px 0; }
+          .rank.medium.r108 {
+            background-position: -1408px 0; }
+          .rank.medium.r109 {
+            background-position: 0 -128px; }
+          .rank.medium.r11 {
+            background-position: -128px -128px; }
+          .rank.medium.r110 {
+            background-position: -256px -128px; }
+          .rank.medium.r111 {
+            background-position: -384px -128px; }
+          .rank.medium.r112 {
+            background-position: -512px -128px; }
+          .rank.medium.r113 {
+            background-position: -640px -128px; }
+          .rank.medium.r114 {
+            background-position: -768px -128px; }
+          .rank.medium.r115 {
+            background-position: -896px -128px; }
+          .rank.medium.r116 {
+            background-position: -1024px -128px; }
+          .rank.medium.r117 {
+            background-position: -1152px -128px; }
+          .rank.medium.r118 {
+            background-position: -1280px -128px; }
+          .rank.medium.r119 {
+            background-position: -1408px -128px; }
+          .rank.medium.r12 {
+            background-position: 0 -256px; }
+          .rank.medium.r120 {
+            background-position: -128px -256px; }
+          .rank.medium.r121 {
+            background-position: -256px -256px; }
+          .rank.medium.r122 {
+            background-position: -384px -256px; }
+          .rank.medium.r123 {
+            background-position: -512px -256px; }
+          .rank.medium.r124 {
+            background-position: -640px -256px; }
+          .rank.medium.r125 {
+            background-position: -768px -256px; }
+          .rank.medium.r126 {
+            background-position: -896px -256px; }
+          .rank.medium.r127 {
+            background-position: -1024px -256px; }
+          .rank.medium.r128 {
+            background-position: -1152px -256px; }
+          .rank.medium.r129 {
+            background-position: -1280px -256px; }
+          .rank.medium.r13 {
+            background-position: -1408px -256px; }
+          .rank.medium.r130 {
+            background-position: 0 -384px; }
+          .rank.medium.r131 {
+            background-position: -128px -384px; }
+          .rank.medium.r132 {
+            background-position: -256px -384px; }
+          .rank.medium.r133 {
+            background-position: -384px -384px; }
+          .rank.medium.r134 {
+            background-position: -512px -384px; }
+          .rank.medium.r135 {
+            background-position: -640px -384px; }
+          .rank.medium.r136 {
+            background-position: -768px -384px; }
+          .rank.medium.r137 {
+            background-position: -896px -384px; }
+          .rank.medium.r138 {
+            background-position: -1024px -384px; }
+          .rank.medium.r139 {
+            background-position: -1152px -384px; }
+          .rank.medium.r14 {
+            background-position: -1280px -384px; }
+          .rank.medium.r140 {
+            background-position: -1408px -384px; }
+          .rank.medium.r15 {
+            background-position: 0 -512px; }
+          .rank.medium.r16 {
+            background-position: -128px -512px; }
+          .rank.medium.r17 {
+            background-position: -256px -512px; }
+          .rank.medium.r18 {
+            background-position: -384px -512px; }
+          .rank.medium.r19 {
+            background-position: -512px -512px; }
+          .rank.medium.r2 {
+            background-position: -640px -512px; }
+          .rank.medium.r20 {
+            background-position: -768px -512px; }
+          .rank.medium.r21 {
+            background-position: -896px -512px; }
+          .rank.medium.r22 {
+            background-position: -1024px -512px; }
+          .rank.medium.r23 {
+            background-position: -1152px -512px; }
+          .rank.medium.r24 {
+            background-position: -1280px -512px; }
+          .rank.medium.r25 {
+            background-position: -1408px -512px; }
+          .rank.medium.r26 {
+            background-position: 0 -640px; }
+          .rank.medium.r27 {
+            background-position: -128px -640px; }
+          .rank.medium.r28 {
+            background-position: -256px -640px; }
+          .rank.medium.r29 {
+            background-position: -384px -640px; }
+          .rank.medium.r3 {
+            background-position: -512px -640px; }
+          .rank.medium.r30 {
+            background-position: -640px -640px; }
+          .rank.medium.r31 {
+            background-position: -768px -640px; }
+          .rank.medium.r32 {
+            background-position: -896px -640px; }
+          .rank.medium.r33 {
+            background-position: -1024px -640px; }
+          .rank.medium.r34 {
+            background-position: -1152px -640px; }
+          .rank.medium.r35 {
+            background-position: -1280px -640px; }
+          .rank.medium.r36 {
+            background-position: -1408px -640px; }
+          .rank.medium.r37 {
+            background-position: 0 -768px; }
+          .rank.medium.r38 {
+            background-position: -128px -768px; }
+          .rank.medium.r39 {
+            background-position: -256px -768px; }
+          .rank.medium.r4 {
+            background-position: -384px -768px; }
+          .rank.medium.r40 {
+            background-position: -512px -768px; }
+          .rank.medium.r41 {
+            background-position: -640px -768px; }
+          .rank.medium.r42 {
+            background-position: -768px -768px; }
+          .rank.medium.r43 {
+            background-position: -896px -768px; }
+          .rank.medium.r44 {
+            background-position: -1024px -768px; }
+          .rank.medium.r45 {
+            background-position: -1152px -768px; }
+          .rank.medium.r46 {
+            background-position: -1280px -768px; }
+          .rank.medium.r47 {
+            background-position: -1408px -768px; }
+          .rank.medium.r48 {
+            background-position: 0 -896px; }
+          .rank.medium.r49 {
+            background-position: -128px -896px; }
+          .rank.medium.r5 {
+            background-position: -256px -896px; }
+          .rank.medium.r50 {
+            background-position: -384px -896px; }
+          .rank.medium.r51 {
+            background-position: -512px -896px; }
+          .rank.medium.r52 {
+            background-position: -640px -896px; }
+          .rank.medium.r53 {
+            background-position: -768px -896px; }
+          .rank.medium.r54 {
+            background-position: -896px -896px; }
+          .rank.medium.r55 {
+            background-position: -1024px -896px; }
+          .rank.medium.r56 {
+            background-position: -1152px -896px; }
+          .rank.medium.r57 {
+            background-position: -1280px -896px; }
+          .rank.medium.r58 {
+            background-position: -1408px -896px; }
+          .rank.medium.r59 {
+            background-position: 0 -1024px; }
+          .rank.medium.r6 {
+            background-position: -128px -1024px; }
+          .rank.medium.r60 {
+            background-position: -256px -1024px; }
+          .rank.medium.r61 {
+            background-position: -384px -1024px; }
+          .rank.medium.r62 {
+            background-position: -512px -1024px; }
+          .rank.medium.r63 {
+            background-position: -640px -1024px; }
+          .rank.medium.r64 {
+            background-position: -768px -1024px; }
+          .rank.medium.r65 {
+            background-position: -896px -1024px; }
+          .rank.medium.r66 {
+            background-position: -1024px -1024px; }
+          .rank.medium.r67 {
+            background-position: -1152px -1024px; }
+          .rank.medium.r68 {
+            background-position: -1280px -1024px; }
+          .rank.medium.r69 {
+            background-position: -1408px -1024px; }
+          .rank.medium.r7 {
+            background-position: 0 -1152px; }
+          .rank.medium.r70 {
+            background-position: -128px -1152px; }
+          .rank.medium.r71 {
+            background-position: -256px -1152px; }
+          .rank.medium.r72 {
+            background-position: -384px -1152px; }
+          .rank.medium.r73 {
+            background-position: -512px -1152px; }
+          .rank.medium.r74 {
+            background-position: -640px -1152px; }
+          .rank.medium.r75 {
+            background-position: -768px -1152px; }
+          .rank.medium.r76 {
+            background-position: -896px -1152px; }
+          .rank.medium.r77 {
+            background-position: -1024px -1152px; }
+          .rank.medium.r78 {
+            background-position: -1152px -1152px; }
+          .rank.medium.r79 {
+            background-position: -1280px -1152px; }
+          .rank.medium.r8 {
+            background-position: -1408px -1152px; }
+          .rank.medium.r80 {
+            background-position: 0 -1280px; }
+          .rank.medium.r81 {
+            background-position: -128px -1280px; }
+          .rank.medium.r82 {
+            background-position: -256px -1280px; }
+          .rank.medium.r83 {
+            background-position: -384px -1280px; }
+          .rank.medium.r84 {
+            background-position: -512px -1280px; }
+          .rank.medium.r85 {
+            background-position: -640px -1280px; }
+          .rank.medium.r86 {
+            background-position: -768px -1280px; }
+          .rank.medium.r87 {
+            background-position: -896px -1280px; }
+          .rank.medium.r88 {
+            background-position: -1024px -1280px; }
+          .rank.medium.r89 {
+            background-position: -1152px -1280px; }
+          .rank.medium.r9 {
+            background-position: -1280px -1280px; }
+          .rank.medium.r90 {
+            background-position: -1408px -1280px; }
+          .rank.medium.r91 {
+            background-position: 0 -1408px; }
+          .rank.medium.r92 {
+            background-position: -128px -1408px; }
+          .rank.medium.r93 {
+            background-position: -256px -1408px; }
+          .rank.medium.r94 {
+            background-position: -384px -1408px; }
+          .rank.medium.r95 {
+            background-position: -512px -1408px; }
+          .rank.medium.r96 {
+            background-position: -640px -1408px; }
+          .rank.medium.r97 {
+            background-position: -768px -1408px; }
+          .rank.medium.r98 {
+            background-position: -896px -1408px; }
+          .rank.medium.r99 {
+            background-position: -1024px -1408px; }

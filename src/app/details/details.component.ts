@@ -718,6 +718,10 @@ export class DetailsComponent implements OnInit {
     });
   }
 
+  public parse(num: any) {
+    return parseInt(num);
+  }
+
   public showAll() {
     if(!this.showAllToggle) {
       this.weaponsSlice = this.weapons;
